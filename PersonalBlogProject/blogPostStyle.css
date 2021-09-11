@@ -18,50 +18,30 @@ body{
     grid-template-columns: 100%;
     grid-template-areas:
         "hd"
-        "ca"
+        "art"
+        "auth"
         "nv"
         "ft";
 }
 
-.contentArea{
+article{
+    background-color: #fff;
     display:flex; 
     flex-direction:column;
     margin-left: 5%;
     margin-right: 5%;
-    grid-area: ca;
+    grid-area: art;
+    border: 1px solid red;
 }
 
-#intro,
-#overview{
-    padding-left: 20px;
-    padding-right: 20px;
+.imageGallery{
+    border: 1px solid yellow;
 }
 
-.cardGrid{
-    display:grid; 
-    margin-bottom: 20px;
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(6,1fr);
-    grid-gap: 20px;
+section.authorInfo{
+    grid-area: art;
+    border: 1px solid green;
 }
-.card{
-    display:flex; 
-    flex-direction:column;
-    align-items: center;
-    background-color: #fff;
-    padding: 5px;
-    /*box-shadow: 0 0 10px rgb(80, 0, 40);*/
-    z-index: 1;
-}
-
-.cardImage{
-    max-height: 350px;
-    max-width: 350px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid grey;
-    z-index: 3;
-}
-
 
 /*Alt layouts for medium displays*/
 @media(min-width: 600px) and (max-width: 900px){
@@ -76,34 +56,6 @@ body{
         "nv-h nv-h nv-h"
         "nv-l nv-l nv-l";*/
     }
-
-    .contentArea{
-        display:flex; 
-        flex-direction:column;
-        margin-left: 5%;
-        margin-right: 5%;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        grid-area: ca;
-    }
-
-    .cardGrid{
-        margin: auto;
-        max-width: 800px;
-        display:grid; 
-        grid-template-columns: repeat(2,1fr);
-        grid-template-rows: repeat(3,1fr);
-        grid-gap: 15px;
-    }
-
-    .cardImage{
-        max-height: 250px;
-        max-width: 250px;
-        padding-bottom: 25px;
-        border-bottom: 1px solid grey;
-        z-index: 3;
-    }
 }
 
 /*Alt layouts for large displays*/
@@ -116,47 +68,6 @@ body{
         margin: 0px;
         border-top: 1px solid black; 
         border-bottom: 1px solid black;  
-    }
-
-    #blogCatLinks{
-        display: flex;
-        flex-direction: column;
-        gap: 0px;
-    }
-
-    .contentArea{
-        display:flex; 
-        flex-direction:column;
-        margin-left: 5%;
-        grid-area: ca;
-    }
-
-    .container{
-        width:100%;
-        display:grid;
-        grid-template-rows: 100px 1fr 200px;
-        grid-template-columns: repeat(5,1fr);
-        grid-template-areas:
-            "hd hd hd hd hd"
-            "ca ca ca ca nv"
-            "ft ft ft ft ft";
-    }
-    .cardGrid{
-        display:grid; 
-        margin: auto;
-        max-width: 1000px;
-        grid-template-columns: repeat(2,1fr);
-        grid-template-rows: repeat(3,1fr);
-        grid-gap: 25px;
-        padding-bottom: 50px;
-    }
-
-    .cardImage{
-        max-height: 350px;
-        max-width: 350px;
-        padding-bottom: 30px;
-        border-bottom: 1px solid grey;
-        z-index: 3;
     }
 
 
