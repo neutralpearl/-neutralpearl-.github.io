@@ -1,3 +1,0 @@
-function reviewModeIsReadOnly () {
-  return true;
-}
