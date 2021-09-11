@@ -1,0 +1,104 @@
+/*Header Elements*/
+header.allPages{
+    grid-area: hd;
+    background-color:rgb(116, 1, 64);
+    padding-left: 5%;
+    padding-right: 5%;
+    display:grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 70 30%;
+    grid-template-areas:
+    "hdT hdN";
+    align-items: center;  
+    color: #ffffff;
+}
+
+#headerText{
+    grid-area: hdT;
+}
+#headerNav{
+    position: absolute;
+    right: 30px;
+    grid-area: hdN;
+}
+
+#headerNavIcons{
+    height: 20px;
+    width: 20px;
+}
+
+/*Blog Nav Elements*/
+.navMenu{
+    background-color:rgb(63, 0, 31);
+    padding-left: 5%;
+    padding-right: 5%;
+    grid-area: nv;
+    display:flex;
+    flex-direction: column;
+}
+
+#blogCatLinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*Footer Elements*/
+footer.allPages{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 20px;
+    grid-area: ft;
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 60px, 1fr;
+    grid-template-areas:
+    "sb"
+    "fm";
+    background-color:rgb(128, 0, 70);
+    color:#ffffff;
+}
+
+#subscribe{
+    grid-area:sb;
+}
+
+#signup{
+    grid-area:fm;
+}
+
+label{
+    font-family: Urbanist, sans-serif;
+}
+
+input{
+    padding: 1px;
+    width: 200px;
+}
+
+button{
+    font-family: Urbanist, sans-serif;
+    color: #fff;
+    background-color: #000;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+
+/*Alt layouts for large displays*/
+@media(min-width: 901px){
+    .navMenu{
+        display:flex;
+        flex-direction: column;
+        padding-left: 20px;
+        margin: 0px;
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black;  
+    }
+
+    #blogCatLinks{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+}
