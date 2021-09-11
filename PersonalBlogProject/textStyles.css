@@ -1,0 +1,58 @@
+/*Text Styles*/
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300&family=Urbanist:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&display=swap');
+
+h1{
+    font-family: 'Bubbler One', sans-serif;
+    font-size: 44px;
+    font-style: italic;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 4px rgb(80, 0, 40);
+}
+h2{
+    font-family: 'Urbanist', sans-serif;
+    text-decoration: underline #009420;
+    font-size: 24px;
+    color:#fff;
+}
+h3{
+    font-family: 'Bubbler One', sans-serif;
+    text-transform: uppercase;
+    font-size: 28px;
+    color: #000;
+}
+h4{
+    font-family: 'Urbanist', sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight:600;
+    color:#009420;
+}
+p{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 16px;
+    color:#fff;
+}
+
+p.caption{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 13px;
+    color:#000;
+    margin-top: -15px;
+}
+
+a{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 18px;
+    color:rgb(233, 159, 0);
+}
+
+a:hover{
+    color:#fff;
+}
+
+a:visited{
+    color:#009420;
+}
+
