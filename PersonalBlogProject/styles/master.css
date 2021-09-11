@@ -1,4 +1,4 @@
-@import "textStyles.css";
+@import "text.css";
 @import "sharedContent.css";
 @import "globalBehavior.css";
 
@@ -59,18 +59,6 @@
 
 /*Alt layouts for medium displays*/
 @media(min-width: 600px) and (max-width: 900px){
-    .navMenu{
-        grid-area: nv;
-        display:flex;
-        flex-direction: column;
-        /*display: grid;
-        grid-template-columns: repeat(3,1fr);
-        grid-template-rows: 50px 30px 30px 30px;
-        grid-template-areas:
-        "nv-h nv-h nv-h"
-        "nv-l nv-l nv-l";*/
-    }
-
     .contentArea{
         display:flex; 
         flex-direction:column;
@@ -102,29 +90,6 @@
 
 /*Alt layouts for large displays*/
 @media(min-width: 901px){
-    .navMenu{
-        background-color:rgb(80, 0, 40);
-        display:flex;
-        flex-direction: column;
-        padding-left: 20px;
-        margin: 0px;
-        border-top: 1px solid black; 
-        border-bottom: 1px solid black;  
-    }
-
-    #blogCatLinks{
-        display: flex;
-        flex-direction: column;
-        gap: 0px;
-    }
-
-    .contentArea{
-        display:flex; 
-        flex-direction:column;
-        margin-left: 5%;
-        grid-area: ca;
-    }
-
     .container{
         width:100%;
         display:grid;
@@ -135,6 +100,14 @@
             "ca ca ca ca nv"
             "ft ft ft ft ft";
     }
+
+    .contentArea{
+        display:flex; 
+        flex-direction:column;
+        margin-left: 5%;
+        grid-area: ca;
+    }
+
     .cardGrid{
         display:grid; 
         margin: auto;
@@ -152,6 +125,4 @@
         border-bottom: 1px solid grey;
         z-index: 3;
     }
-
-
 }

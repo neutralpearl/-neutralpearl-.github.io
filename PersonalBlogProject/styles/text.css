@@ -13,7 +13,7 @@ h1{
 h2{
     font-family: 'Urbanist', sans-serif;
     text-decoration: underline #009420;
-    font-size: 24px;
+    font-size: 26px;
     color:#fff;
 }
 h3{
@@ -45,14 +45,15 @@ p.caption{
 a{
     font-family: 'Oxygen', sans-serif;
     font-size: 18px;
-    color:rgb(233, 159, 0);
+    color:rgb(255, 180, 20);
 }
 
 a:hover{
-    color:#fff;
+    color:rgb(233, 159, 0);
 }
 
 a:visited{
     color:#009420;
 }
+
 
