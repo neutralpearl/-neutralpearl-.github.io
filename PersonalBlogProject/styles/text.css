@@ -48,14 +48,32 @@ p.caption{
     margin-top: -10px;
 }
 
+figcaption{
+    font-family: 'Oxygen', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    color:rgb(36, 36, 36);
+    margin-top: -10px;
+    padding-bottom: 10px;
+}
+
 li:not(:last-child) {
     margin-bottom: 10px;
     font-size: 15px;
 }
 
+blockquote{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 15px;
+    color: rgb(36, 36, 36);
+    margin-left: 80px;
+    border-left: 1px solid grey;
+    padding-left: 10px;
+}
+
 a{
     font-family: 'Oxygen', sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     color:rgb(255, 180, 20);
 }
 
@@ -71,5 +89,9 @@ a:visited{
 @media(max-width: 600px){
     h1{
         font-size: 30px;
+    }
+
+    blockquote{
+        margin-left: 40px;
     }
 }
