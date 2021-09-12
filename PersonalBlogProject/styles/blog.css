@@ -56,6 +56,8 @@ img.featured{
 
 .post-text{
     padding-bottom: 20px;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 16px;
 }
 
 #image-gallery{
