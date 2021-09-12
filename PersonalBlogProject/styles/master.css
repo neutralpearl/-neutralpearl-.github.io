@@ -2,13 +2,13 @@
 @import "shared.css";
 @import "global.css";
 
-/*Homepage Layout*/
+/*--Homepage Layout--*/
 .container{
     width:100%;
     background-color: #000;
     /*Default grid for small displays*/
     display:grid;
-    grid-template-rows: 100px 1fr 250px 250px;
+    grid-template-rows: 100px 1fr 200px 250px;
     grid-template-columns: 100%;
     grid-template-areas:
         "hd"
@@ -17,18 +17,17 @@
         "ft";
 }
 
+/*--Content Layout--*/
 .content-area{
     display:flex; 
     flex-direction:column;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 0px 5% 0px 5%;
+    padding: 0px 20px 0px 20px;
     grid-area: ca;
 }
 
-#intro,
 #overview{
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-top: -15px;
 }
 
 .card-grid{
@@ -43,7 +42,7 @@
     flex-direction:column;
     align-items: center;
     background-color: #fff;
-    padding: 10px 5px 10px 5px;
+    padding: 10px;
     box-shadow: 0px 0px 2px 2px #494949; 
     z-index: 1;
 }
@@ -52,8 +51,6 @@
     object-fit: contain;
     max-height: 270px;
     max-width: 270px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid grey;
     z-index: 3;
 }
 
@@ -75,7 +72,11 @@ button.card-button{
     box-shadow: 0px 0px 2px 3px #3b2931; 
   }
 
-/*Alt layouts for medium displays*/
+p.caption{
+    margin-top: -25px;
+}
+
+/*-------Alt formatting for medium displays---------*/
 @media(min-width: 600px) and (max-width: 900px){
     .content-area{
         padding-left: 20px;
@@ -95,12 +96,10 @@ button.card-button{
     .card-image{
         max-height: 250px;
         max-width: 250px;
-        border-bottom: 1px solid grey;
-        z-index: 3;
     }
 }
 
-/*Alt layouts for large displays*/
+/*-------Alt formatting for large displays---------*/
 @media(min-width: 901px){
     .container{
         width:100%;
@@ -133,7 +132,5 @@ button.card-button{
     .card-image{
         max-height: 300px;
         max-width: 300px;
-        border-bottom: 1px solid grey;
-        z-index: 3;
     }
 }

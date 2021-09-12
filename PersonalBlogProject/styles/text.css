@@ -1,8 +1,9 @@
-/*Text Styles*/
+/*--Imported Fonts--*/
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300&family=Urbanist:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bubbler+One&display=swap');
 
+/*--Header Styles--*/
 h1{
     font-family: 'Bubbler One', sans-serif;
     font-size: 36px;
@@ -16,6 +17,7 @@ h2{
     font-size: 26px;
     color:#fff;
 }
+
 h3{
     font-family: 'Urbanist', sans-serif;
     font-size: 20px;
@@ -30,6 +32,7 @@ h4{
     color: #000;
 }
 
+/*--Other Text Styles--*/
 p{
     font-family: 'Oxygen', sans-serif;
     font-size: 16px;
@@ -57,12 +60,9 @@ a:visited{
     color:#009420;
 }
 
+/*-----Alt formatting on SMALL displays-----*/
 @media(max-width: 600px){
     h1{
-        font-family: 'Bubbler One', sans-serif;
-        font-size: 36px;
-        font-style: italic;
-        text-transform: uppercase;
-        text-shadow: 4px 4px 4px rgb(80, 0, 40);
+        font-size: 30px;
     }
 }

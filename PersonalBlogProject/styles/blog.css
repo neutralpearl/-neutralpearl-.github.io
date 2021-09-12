@@ -2,15 +2,13 @@
 @import "shared.css";
 @import "global.css";
 
-
-/*Blog Post Layout*/
-
+/*--Blog Post Layout--*/
 .container{
     width:100%;
     background-color: #000;
     /*Default grid for small displays*/
     display:grid;
-    grid-template-rows: 100px 1fr auto 250px 250px;
+    grid-template-rows: 100px 1fr auto 200px 250px;
     grid-template-columns: 100%;
     grid-template-areas:
         "hd"
@@ -20,14 +18,24 @@
         "ft";
 }
 
-.post-title{
-    padding-left: 20px;
+/*--Article Layout & Content--*/
+article{
+    grid-area: art;
+    background-color: #fff;
+    margin: 30px 5% 30px 5%;
+    padding: 0px 20px 20px 20px;
+    display:flex; 
+    flex-direction:column;
 }
 
-#content{
+#post-title,
+.post-text,
+.about{
+    color: #000 !important;
+}
+
+#post-content{
     display: flow-root;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .feat-image{
@@ -42,24 +50,16 @@ img.featured{
     max-height: 250px;
 }
 
-.post-title,
 .post-text{
-    color: #000;
-}
-
-article{
-    grid-area: art;
-    background-color: #fff;
-    margin: 30px 5% 30px 5%;
-    display:flex; 
-    flex-direction:column;
+    padding-bottom: 30px;
+    border-bottom: 1px solid grey;
 }
 
 #image-gallery{
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20px;
 }
 
 .gallery-grid{
@@ -67,13 +67,18 @@ article{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    grid-gap: 10px;
+    gap: 10px;
+}
+
+.thumbnail{
+    height: 120px;
+    width: 120px;
 }
 
 #social-sharing{
     margin-top: 30px;
     height: 30px;
-    padding-left: 30px;
+    padding-left: 10px;
     display: flex;
     flex-direction: row;
 }
@@ -86,6 +91,7 @@ article{
     align-items: center;
 }
 
+/*--About the Author Box--*/
 #author{
     grid-area: auth;
     padding: 20px;
@@ -105,22 +111,19 @@ article{
     flex-wrap: wrap;
 }
 
-.about{
-    color: #000;
-}
-
 #avatar{
     grid-area: av;
+    margin-top: -20px;
     height: 200px;
     width: 150px;
 }
 
 #about-title{
+    margin-top: -20px;
     grid-area: ab;
 }
 
 #name{
-    margin-top: -40px;
     grid-area: nm;
 }
 
@@ -129,12 +132,7 @@ article{
     font-size: 16px;
 }
 
-.thumbnail{
-    height: 150px;
-    width: 150px;
-}
-
-/*Alt layouts for medium displays*/
+/*-------Alt formatting for medium displays---------*/
 @media(min-width: 600px) and (max-width: 900px){
     .feat-image{
         float: right;
@@ -149,6 +147,11 @@ article{
         max-width: 250px;
         max-height: 250px;
     }
+ 
+    .thumbnail{
+        width: 160px;
+        height: 160px;
+    }
 
     .author-info{
         display: grid;
@@ -158,6 +161,10 @@ article{
         "av ab"
         "av nm"
         "bio bio";
+    }
+
+    #avatar{
+        margin-top: 0px;
     }
 
     #name{
@@ -186,20 +193,9 @@ article{
             "auth auth auth nv"
             "ft ft ft ft";
     }
-
-    #blog-cat-links{
-        display: flex;
-        flex-direction: column;
-        gap: 0px;
-    }
-  
-    .thumbnail{
-        width: 180px;
-        height: 180px;
-    }
 }
 
-/*Alt layouts for large displays*/
+/*-------Alt formatting for large displays---------*/
 @media(min-width: 901px){
     .container{
         width:100%;
@@ -227,6 +223,11 @@ article{
         max-height: 300px;
     }
 
+    .thumbnail{
+        width: 200px;
+        height: 200px;
+    }
+
     .author-info{
         display: grid;
         grid-template-columns: 180px 1fr;
@@ -237,14 +238,13 @@ article{
         "bio bio";
     }
 
+    #avatar{
+        margin-top: 0px;
+    }
+
     #name{
         margin-top: -70px;
         padding-right: 10px;
         grid-area: nm;
-    }
-  
-    .thumbnail{
-        width: 210px;
-        height: 210px;
     }
 }
