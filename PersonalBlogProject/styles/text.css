@@ -48,11 +48,6 @@ p.caption{
     margin-top: -10px;
 }
 
-ul,
-ol{
-    margin: -20px 0px -20px 0px;
-}
-
 li:not(:last-child) {
     margin-bottom: 10px;
     font-size: 15px;
