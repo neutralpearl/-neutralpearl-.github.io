@@ -4,45 +4,65 @@
 	<title>Calathea Majestica</title>
 	<meta charset="utf-8" />
 	<meta name="Your weekly plant profile" content="blog" />
-	<link rel="stylesheet" href="styles/blogPost.css">
+	<link rel="stylesheet" href="styles/blog.css">
 </head>
 
 <body>
 	<div class="container">
-		<header class="allPages">
-			<div id="headerText">
+		<header class="all-pages">
+			<div id="header-text">
 				<h1>Manic for Marantaceae</h1>
 			</div>
-			<div id="headerNav">
-				<a href="index.html"><img id="headerNavIcons" src="media/home-icon.png"></a>
+			<div id="header-nav">
+				<a href="index.html"><img id="header-nav-icons" src="media/home-icon.png"></a>
 			</div>
 		</header>
 		<article>
-			<header class="postTitle">
+			<header class="post-title">
 				<h3>Calathea Majestica</h3>
 				<p class="caption">
 					<strong>Posted: </strong>September 3, 2021<br/>
-					<strong>Post Category: </strong><a href=#navMenu>Calatheas</a>
+					<strong>Post Category: </strong><a href=#nav-menu>Calatheas</a>
 				</p>
 			</header>
 			<div id="content">
-				<p class="postText">
+				<div class="feat-image">
+					<img class="featured" src="media/majestica.jpg">
+					<p class="caption">
+						<em>Behold this beauteous cultivar!</em>
+					</p>
+				</div>
+				<p class="post-text">
 					<em>Text below is adapted from <a href="https://mylittlejungle.com/calathea-white-star/">My Little Jungle</a> for demonstration purposes only!</em><br/><br/>
 					Most if not all of the Calathea species hail from the rainforests of the Amazon and are accustomed to such conditions. Despite requiring a bit more care than many other houseplants, these beautiful specimens are some of the favorite choices because of their foliage.<br/><br/>
 					Perhaps one of the most elegant yet relatively muted designs on a Calathea is that of the Calathea majestica ‘White star’ (goeppertia majestica). This specimen is known to be a cultivar of the ornata species and sports several bright white stripes from the midrib of the plant extending to its leaf blades. Some of the leaves may feature pink shades near the midrib, depending on the light conditions and maturity of the plant.<br/><br/>
-					Often mistaken for its relative species, the Calathea ornata or the Pinstripe Calathea, the White star plant has more stripes that almost fill the whole leaf. It also resembles the Vittata variety. Given proper care, this plant can grow as high as 4 to 5ft in large pots and the leaves can become very long.</p>
-				</div>
-			<div id="imageGallery">
-				<img class="thumbnail" src="media/majestica1.png"/>
-				<img class="thumbnail" src="media/majestica2.png"/>
-				<img class="thumbnail" src="media/majestica3.png"/>
-				<img class="thumbnail" src="media/majestica4.png"/>
+					Often mistaken for its relative species, the Calathea ornata or the Pinstripe Calathea, the White star plant has more stripes that almost fill the whole leaf. It also resembles the Vittata variety. Given proper care, this plant can grow as high as 4 to 5ft in large pots and the leaves can become very long.
+				</p>
 			</div>
+			<div id="image-gallery">
+				<header id="gallery-title">
+					<h4>Gallery</h4>
+				</header>
+				<div class="gallery-grid">
+					<img class="thumbnail" src="media/majestica1.png"/>
+					<img class="thumbnail" src="media/majestica2.png"/>
+					<img class="thumbnail" src="media/majestica3.png"/>
+					<img class="thumbnail" src="media/majestica4.png"/>
+				</div>
+			</div>
+			<section id="social-sharing">
+				<p class="caption"><strong>Share now:</strong></p>
+				<div id="social-icons">
+					<img src="media/facebook-icon.png">
+					<img src="media/twitter-icon.png">
+					<img src="media/linkedin-icon.png">
+				</div>
+			</section>
 		</article>
 		<section id="author">
-			<div class="authorInfo">
+			<div class="author-info">
 				<img id="avatar" src="media/LAM.jpg">
-				<div id="aboutTitle">
+				<div id="about-title">
 					<h3>About the Author</h3>
 				</div>
 				<div id="name">
@@ -58,23 +78,23 @@
 				</div>
 			</div>
 		</section>
-		<nav class="navMenu">
-			<header id="navMenuHeader">
+		<nav class="nav-menu">
+			<header id="nav-menu-header">
 				<h2>Post Categories</h2>
 			</header>
-			<div id="blogCatLinks">
+			<div id="blog-cat-links">
 				<p id="calatheas">
-					<a href=#navMenu>Calatheas</a>
+					<a href=#nav-menu>Calatheas</a>
 				</p>
 				<p id="marantas">
-					<a href=#navMenu>Marantas</a>
+					<a href=#nav-menu>Marantas</a>
 				</p>
 				<p id="stromanthes">
-					<a href=#navMenu>Stromanthes</a>
+					<a href=#nav-menu>Stromanthes</a>
 				</p>
 			</div>
 		</nav>
-		<footer class="allPages">
+		<footer class="global">
 			<div id="subscribe">
 				<h2>Are you <em>Manic for Marantaceae</em> too?</h2>
 				<p>
@@ -86,7 +106,7 @@
 					<label>Email Address:
 						<input name="submitted-email" autocomplete="email">
 					</label>
-					<button>
+					<button class="subscription">
 						Submit
 					</button>
 				</form>

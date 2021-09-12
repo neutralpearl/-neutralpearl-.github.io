@@ -1,6 +1,6 @@
 @import "text.css";
-@import "sharedContent.css";
-@import "globalBehavior.css";
+@import "shared.css";
+@import "global.css";
 
 /*Homepage Layout*/
 .container{
@@ -17,7 +17,7 @@
         "ft";
 }
 
-.contentArea{
+.content-area{
     display:flex; 
     flex-direction:column;
     margin-left: 5%;
@@ -31,7 +31,7 @@
     padding-right: 20px;
 }
 
-.cardGrid{
+.card-grid{
     display:grid; 
     margin-bottom: 20px;
     grid-template-columns: 100%;
@@ -43,23 +43,40 @@
     flex-direction:column;
     align-items: center;
     background-color: #fff;
-    padding: 5px;
-    /*box-shadow: 0 0 10px rgb(80, 0, 40);*/
+    padding: 5px 5px 10px 5px;
+    box-shadow: 0px 0px 2px 2px #494949; 
     z-index: 1;
 }
 
-.cardImage{
+.card-image{
     max-height: 350px;
     max-width: 350px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     border-bottom: 1px solid grey;
     z-index: 3;
 }
 
+button.card-button{
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 1px 2px #afafaf; 
+    background-color: #fff;
+    color:#000;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    padding: 0px 20px 0px 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.card-button:hover {
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 2px 3px #3b2931; 
+  }
 
 /*Alt layouts for medium displays*/
 @media(min-width: 600px) and (max-width: 900px){
-    .contentArea{
+    .content-area{
         display:flex; 
         flex-direction:column;
         margin-left: 5%;
@@ -70,7 +87,7 @@
         grid-area: ca;
     }
 
-    .cardGrid{
+    .card-grid{
         margin: auto;
         max-width: 800px;
         display:grid; 
@@ -79,10 +96,9 @@
         grid-gap: 15px;
     }
 
-    .cardImage{
+    .card-image{
         max-height: 250px;
         max-width: 250px;
-        padding-bottom: 25px;
         border-bottom: 1px solid grey;
         z-index: 3;
     }
@@ -101,14 +117,14 @@
             "ft ft ft ft ft";
     }
 
-    .contentArea{
+    .content-area{
         display:flex; 
         flex-direction:column;
         margin-left: 5%;
         grid-area: ca;
     }
 
-    .cardGrid{
+    .card-grid{
         display:grid; 
         margin: auto;
         max-width: 1000px;
@@ -118,10 +134,9 @@
         padding-bottom: 50px;
     }
 
-    .cardImage{
+    .card-image{
         max-height: 350px;
         max-width: 350px;
-        padding-bottom: 30px;
         border-bottom: 1px solid grey;
         z-index: 3;
     }

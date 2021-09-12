@@ -1,6 +1,6 @@
 @import "text.css";
-@import "sharedContent.css";
-@import "globalBehavior.css";
+@import "shared.css";
+@import "global.css";
 
 
 /*Blog Post Layout*/
@@ -20,30 +20,73 @@
         "ft";
 }
 
-.postTitle,
-.postText{
-    color: #000;
+.post-title{
+    padding-left: 20px;
+}
+
+#content{
+    display: flow-root;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.feat-image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img.featured{
+    margin: 10px 0px 20px 0px;
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.post-title,
+.post-text{
+    color: #000;
 }
 
 article{
     grid-area: art;
     background-color: #fff;
     margin-top: 30px;
+    margin-bottom: 30px;
     margin-left: 5%;
     margin-right: 5%;
     display:flex; 
     flex-direction:column;
 }
 
-#imageGallery{
+#image-gallery{
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-grid{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     grid-gap: 10px;
+}
+
+#social-sharing{
+    margin-top: 30px;
+    height: 30px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+#social-icons{
+    margin: -30px 0px 0px 20px;
+    display: flex;
+    flex-direction: row;
+    grid-gap: 20px;
+    align-items: center;
 }
 
 #author{
@@ -58,7 +101,7 @@ article{
     border-top: 3px solid #000;
 }
 
-.authorInfo{
+.author-info{
     background-color: #fff;
     display: grid;
     grid-template-columns: 180px 1fr;
@@ -80,7 +123,7 @@ article{
     width: 150px;
 }
 
-#aboutTitle{
+#about-title{
     grid-area: ab;
 }
 
@@ -104,7 +147,21 @@ article{
 
 /*Alt layouts for medium displays*/
 @media(min-width: 600px) and (max-width: 900px){
-    .navMenu{
+    .feat-image{
+        float: right;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    img.featured{
+        margin-bottom: 20px;
+        max-width: 250px;
+        max-height: 250px;
+    }
+    
+    .nav-menu{
         display:flex;
         flex-direction: column;
         padding-left: 20px;
@@ -125,15 +182,15 @@ article{
             "ft ft ft ft";
     }
 
-    #blogCatLinks{
+    #blog-cat-links{
         display: flex;
         flex-direction: column;
         gap: 0px;
     }
   
     .thumbnail{
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
     }
 }
 
@@ -150,9 +207,23 @@ article{
         "auth auth auth auth nv"
         "ft ft ft ft ft";
     }
+
+    .feat-image{
+        float: right;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    img.featured{
+        margin-bottom: 20px;
+        max-width: 300px;
+        max-height: 300px;
+    }
   
     .thumbnail{
-        width: 250px;
-        height: 250px;
+        width: 210px;
+        height: 210px;
     }
 }
