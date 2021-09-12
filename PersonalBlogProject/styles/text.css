@@ -17,18 +17,19 @@ h2{
     color:#fff;
 }
 h3{
-    font-family: 'Bubbler One', sans-serif;
-    text-transform: uppercase;
-    font-size: 28px;
-    color: #000;
-}
-h4{
     font-family: 'Urbanist', sans-serif;
     font-size: 20px;
     font-style: italic;
     font-weight:600;
     color:#009420;
 }
+h4{
+    font-family: 'Bubbler One', sans-serif;
+    text-transform: uppercase;
+    font-size: 28px;
+    color: #000;
+}
+
 p{
     font-family: 'Oxygen', sans-serif;
     font-size: 16px;
