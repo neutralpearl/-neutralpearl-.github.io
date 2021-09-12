@@ -10,7 +10,7 @@
     background-color: #000;
     /*Default grid for small displays*/
     display:grid;
-    grid-template-rows: 100px 1fr auto 150px 200px;
+    grid-template-rows: 100px 1fr auto 250px 250px;
     grid-template-columns: 100%;
     grid-template-areas:
         "hd"
@@ -91,6 +91,7 @@ article{
     padding: 20px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     background-color: rgb(116, 1, 64);
     margin: 0px 5% 30px 5%;
     border-top: 3px solid #000;
@@ -98,13 +99,10 @@ article{
 
 .author-info{
     background-color: #fff;
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    grid-template-rows: repeat (6, 30px);
-    grid-template-areas: 
-    "av ab"
-    "av nm"
-    "bio bio";
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .about{
@@ -113,7 +111,6 @@ article{
 
 #avatar{
     grid-area: av;
-    padding: 5px;
     height: 200px;
     width: 150px;
 }
@@ -123,15 +120,12 @@ article{
 }
 
 #name{
-    margin-top: -70px;
-    padding-right: 10px;
+    margin-top: -40px;
     grid-area: nm;
 }
 
 #biography{
     grid-area: bio;
-    padding-left: 10px;
-    padding-right: 10px;
     font-size: 16px;
 }
 
@@ -154,6 +148,22 @@ article{
         margin-bottom: 20px;
         max-width: 250px;
         max-height: 250px;
+    }
+
+    .author-info{
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        grid-template-rows: repeat (6, 30px);
+        grid-template-areas: 
+        "av ab"
+        "av nm"
+        "bio bio";
+    }
+
+    #name{
+        margin-top: -70px;
+        padding-right: 10px;
+        grid-area: nm;
     }
     
     .nav-menu{
@@ -215,6 +225,22 @@ article{
         margin-bottom: 20px;
         max-width: 300px;
         max-height: 300px;
+    }
+
+    .author-info{
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        grid-template-rows: repeat (6, 30px);
+        grid-template-areas: 
+        "av ab"
+        "av nm"
+        "bio bio";
+    }
+
+    #name{
+        margin-top: -70px;
+        padding-right: 10px;
+        grid-area: nm;
     }
   
     .thumbnail{
