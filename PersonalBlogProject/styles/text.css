@@ -33,7 +33,9 @@ h4{
 }
 
 /*--Other Text Styles--*/
-p{
+p,
+ul,
+ol{
     font-family: 'Oxygen', sans-serif;
     font-size: 16px;
     color:#fff;
@@ -44,6 +46,16 @@ p.caption{
     font-size: 13px;
     color:#000;
     margin-top: -10px;
+}
+
+ul,
+ol{
+    margin: -30px 0px -30px 0px;
+}
+
+li:not(:last-child) {
+    margin-bottom: 10px;
+    font-size: 15px;
 }
 
 a{
