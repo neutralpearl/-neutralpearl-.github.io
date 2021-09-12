@@ -5,7 +5,7 @@
 
 h1{
     font-family: 'Bubbler One', sans-serif;
-    font-size: 44px;
+    font-size: 36px;
     font-style: italic;
     text-transform: uppercase;
     text-shadow: 4px 4px 4px rgb(80, 0, 40);
@@ -57,4 +57,12 @@ a:visited{
     color:#009420;
 }
 
-
+@media(max-width: 600px){
+    h1{
+        font-family: 'Bubbler One', sans-serif;
+        font-size: 36px;
+        font-style: italic;
+        text-transform: uppercase;
+        text-shadow: 4px 4px 4px rgb(80, 0, 40);
+    }
+}

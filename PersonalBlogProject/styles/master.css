@@ -8,7 +8,7 @@
     background-color: #000;
     /*Default grid for small displays*/
     display:grid;
-    grid-template-rows: 100px 1fr 150px 200px;
+    grid-template-rows: 100px 1fr 250px 250px;
     grid-template-columns: 100%;
     grid-template-areas:
         "hd"
@@ -49,8 +49,9 @@
 }
 
 .card-image{
-    max-height: 350px;
-    max-width: 350px;
+    object-fit: contain;
+    max-height: 270px;
+    max-width: 270px;
     padding-bottom: 15px;
     border-bottom: 1px solid grey;
     z-index: 3;
@@ -84,7 +85,6 @@ button.card-button{
     }
 
     .card-grid{
-        margin-right: 50px;
         max-width: 800px;
         display:grid; 
         grid-template-columns: repeat(2,1fr);

@@ -39,9 +39,7 @@ header.all-pages{
 
 #blog-cat-links{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 50px;
+    flex-direction: column;
 }
 
 /*Footer Elements*/
