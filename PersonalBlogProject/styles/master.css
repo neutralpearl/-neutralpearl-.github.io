@@ -77,10 +77,6 @@ button.card-button{
 /*Alt layouts for medium displays*/
 @media(min-width: 600px) and (max-width: 900px){
     .content-area{
-        display:flex; 
-        flex-direction:column;
-        margin-left: 5%;
-        margin-right: 5%;
         padding-left: 20px;
         padding-right: 20px;
         padding-bottom: 20px;
@@ -127,7 +123,7 @@ button.card-button{
     .card-grid{
         display:grid; 
         margin: auto;
-        max-width: 1000px;
+        max-width: 90%;
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(3,1fr);
         grid-gap: 25px;
@@ -135,8 +131,8 @@ button.card-button{
     }
 
     .card-image{
-        max-height: 350px;
-        max-width: 350px;
+        max-height: 300px;
+        max-width: 300px;
         border-bottom: 1px solid grey;
         z-index: 3;
     }
