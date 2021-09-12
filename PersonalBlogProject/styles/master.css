@@ -84,7 +84,7 @@ button.card-button{
     }
 
     .card-grid{
-        margin: auto;
+        margin-right: 50px;
         max-width: 800px;
         display:grid; 
         grid-template-columns: repeat(2,1fr);
