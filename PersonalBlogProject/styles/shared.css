@@ -70,20 +70,26 @@ label{
 }
 
 input{
-    padding: 1px;
-    width: 200px;
+    padding: 3px;
+    width: 250px;
+    margin-right: 5px;
 }
 
 button.subscription{
     font-family: Urbanist, sans-serif;
     color: #fff;
     background-color: #000;
-    margin-left: 10px;
+    margin: 5px 0px 5px 0px;
     padding: 5px;
 }
 
-
-/*-----Alt formatting for large displays------*/
+/*-----Alt formatting for SMALL displays------*/
+@media(max-width: 600px){
+    input{
+        width: 150px;
+    }
+}
+/*-----Alt formatting for LARGE displays------*/
 @media(min-width: 901px){
     .nav-menu{
         margin: 0px;
