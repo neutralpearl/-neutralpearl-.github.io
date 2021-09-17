@@ -30,6 +30,9 @@ header.all-pages{
 /*--Blog Nav Elements--*/
 .nav-menu{
     background-color:rgb(63, 0, 31);
+    box-shadow: 
+        inset 0px 11px 8px -10px rgb(29, 0, 14),
+        inset 0px -11px 8px -10px rgb(29, 0, 14);
     padding: 0px 20px 0px 20px;
     grid-area: nv;
     display:flex;
@@ -55,6 +58,7 @@ footer.global{
     "fm";
     background-color:rgb(128, 0, 70);
     color:#ffffff;
+    z-index: 98;
 }
 
 #subscribe{
