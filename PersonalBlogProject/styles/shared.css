@@ -1,3 +1,9 @@
+/*--Page Structure--*/
+.container{
+    width:100%;
+    background-color: rgb(24, 24, 24);
+}
+
 /*--Header Elements--*/
 header.all-pages{
     grid-area: hd;
@@ -37,6 +43,7 @@ header.all-pages{
     grid-area: nv;
     display:flex;
     flex-direction: column;
+    margin: 0px;
 }
 
 #blog-cat-links{
@@ -94,10 +101,4 @@ button.subscription{
     }
 }
 /*-----Alt formatting for LARGE displays------*/
-@media(min-width: 901px){
-    .nav-menu{
-        margin: 0px;
-        border-top: 1px solid black; 
-        border-bottom: 1px solid black;  
-    }
-}
+/* @media(min-width: 901px){} */
