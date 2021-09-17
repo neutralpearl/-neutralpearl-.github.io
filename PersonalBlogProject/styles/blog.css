@@ -29,6 +29,14 @@ article{
     box-shadow: 0px 0px 2px 2px #494949; 
 }
 
+article a {
+    color:#01801d;
+}
+
+article a:visited {
+    color: rgb(167, 211, 131);
+}
+
 #post-title,
 .post-text,
 .about{

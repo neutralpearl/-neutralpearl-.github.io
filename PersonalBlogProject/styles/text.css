@@ -74,7 +74,8 @@ blockquote{
 a{
     font-family: 'Oxygen', sans-serif;
     font-size: 17px;
-    color:rgb(167, 221, 162);
+    color:rgb(167, 211, 131);
+    text-decoration: none;
 }
 
 a:hover{
