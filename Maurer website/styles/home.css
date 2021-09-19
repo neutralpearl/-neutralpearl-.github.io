@@ -1,0 +1,98 @@
+/*===subordinate CSS===*/
+@import "global.css";
+@import "text.css";
+
+/*
+=========== HEADER ============
+*/
+.header-container-background{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    background-image: url("../media/painting3.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    z-index: -1;
+    /* border: 2px solid yellow; */
+}
+
+#header-background-overlay{
+    padding: 100px 0px 100px 0px;
+    background-color: rgba(2, 26, 22, 0.8); /* Black background with opacity */
+}
+
+.header-container{
+    display: flex;
+    flex-direction: column; 
+    width: 70%;
+    padding: 20px 30px 20px 30px;
+    background-color: #1d1d1d;
+    z-index: 1;
+    /* border: 2px solid purple; */
+}
+
+#header-maurer{
+    padding-left: 10px;
+}
+
+#header-caption{
+    padding: 20px 0px 0px 25px;
+}
+
+
+/*
+=========== NAV ============
+*/
+.nav-container{
+    padding: 20px 30px 20px 30px;
+    background-color: #1d1d1d;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right;
+    list-style-type: none;
+    margin: 0;
+
+}
+
+nav ul li a{
+    padding: 5px 0px 5px 30px;
+    font-weight: 300;
+    color: #e6e6e6cc;
+    /* text-transform: uppercase; */
+    font-family: 'Jost', sans-serif;
+}
+
+nav ul li a:hover{
+
+    text-transform: uppercase;
+}
+
+nav ul li a:active{
+    text-transform: uppercase;
+}
+
+
+/*
+=========== RESPONSIVENESS ============
+*/
+
+/* @media (min-width 600px) and (max-width 900px) {
+    .header-container{
+        display: inline;
+        width: 70%;
+        padding: 20px 30px 20px 30px;
+        background-color: #1d1d1d;
+        z-index: 1;
+        border: 2px solid yellow;
+    }
+
+    #header-maurer{
+        padding: 0px;
+    }
+} */
