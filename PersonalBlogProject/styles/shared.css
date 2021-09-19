@@ -1,3 +1,9 @@
+/*--Page Structure--*/
+.container{
+    width:100%;
+    background-color: rgb(24, 24, 24);
+}
+
 /*--Header Elements--*/
 header.all-pages{
     grid-area: hd;
@@ -30,10 +36,14 @@ header.all-pages{
 /*--Blog Nav Elements--*/
 .nav-menu{
     background-color:rgb(63, 0, 31);
+    box-shadow: 
+        inset 0px 11px 8px -10px rgb(29, 0, 14),
+        inset 0px -11px 8px -10px rgb(29, 0, 14);
     padding: 0px 20px 0px 20px;
     grid-area: nv;
     display:flex;
     flex-direction: column;
+    margin: 0px;
 }
 
 #blog-cat-links{
@@ -55,6 +65,7 @@ footer.global{
     "fm";
     background-color:rgb(128, 0, 70);
     color:#ffffff;
+    z-index: 98;
 }
 
 #subscribe{
@@ -90,10 +101,4 @@ button.subscription{
     }
 }
 /*-----Alt formatting for LARGE displays------*/
-@media(min-width: 901px){
-    .nav-menu{
-        margin: 0px;
-        border-top: 1px solid black; 
-        border-bottom: 1px solid black;  
-    }
-}
+/* @media(min-width: 901px){} */

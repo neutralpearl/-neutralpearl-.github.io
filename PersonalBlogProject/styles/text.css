@@ -74,15 +74,16 @@ blockquote{
 a{
     font-family: 'Oxygen', sans-serif;
     font-size: 17px;
-    color:rgb(255, 180, 20);
+    color:rgb(167, 211, 131);
+    text-decoration: none;
 }
 
 a:hover{
-    color:rgb(233, 159, 0);
+    color:rgb(96, 190, 87);
 }
 
 a:visited{
-    color:#009420;
+    color:#01801d;
 }
 
 /*-----Alt formatting on SMALL displays-----*/

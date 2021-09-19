@@ -4,8 +4,6 @@
 
 /*--Blog Post Layout--*/
 .container{
-    width:100%;
-    background-color: #000;
     /*---Default grid for SMALL displays---*/
     display:grid;
     grid-template-rows: 100px 1fr auto 200px 250px;
@@ -21,7 +19,7 @@
 /*--Article Layout & Content--*/
 article{
     grid-area: art;
-    background-color: #fff;
+    background-color: rgb(248, 248, 248);
     margin: 30px 5% 30px 5%;
     padding: 0px 20px 20px 20px;
     display:flex; 
@@ -29,10 +27,21 @@ article{
     box-shadow: 0px 0px 2px 2px #494949; 
 }
 
-#post-title,
+article a {
+    color:#01801d;
+}
+
+article a:visited {
+    color: rgb(167, 211, 131);
+}
+
+#post-title{
+    color: #000 !important;
+}
+
 .post-text,
 .about{
-    color: #000 !important;
+    color: rgb(24, 24, 24) !important;
 }
 
 #post-content{
@@ -101,7 +110,7 @@ img.featured{
 }
 
 .author-info{
-    background-color: #fff;
+    background-color: rgb(248, 248, 248);
     padding: 10px;
     display: flex;
     flex-direction: column;
