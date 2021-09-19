@@ -29,7 +29,7 @@ nav{
 }
 
 .nav-container{
-    padding: 20px 30px 20px 30px;
+    padding: 20px 8% 20px 30px;
     background-color: #1d1d1d;
 }
 
@@ -88,10 +88,10 @@ footer{
 }
 
 
-/*---MEDIUM SCREENS---*/
-@media (min-width: 601px) and (max-width: 900px){
+/*---MEDIUM AND LARGE SCREENS---*/
+@media (min-width: 601px){
     .nav-container{
-        padding: 20px 50px 20px 50px;
+        padding: 20px 8% 20px 50px;
     }
 }
 
