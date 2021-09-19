@@ -1,0 +1,100 @@
+@import "Meyer-reset.css";
+
+body{
+    background-color: rgb(12, 12, 12);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 0px;
+    z-index: -50;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+=========== HEADER ============
+*/
+
+header{
+    height: auto;
+    /* border: 2px solid red; */
+}
+
+
+/*
+=========== NAV ============
+*/
+nav{
+    height: auto;
+    /* border: 2px solid orange; */
+}
+
+.nav-container{
+    padding: 20px 30px 20px 30px;
+    background-color: #1d1d1d;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right;
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li{
+    padding: 10px 0px 10px 30px;
+}
+
+nav ul li a{
+    font-weight: 300;
+    color: #e6e6e6cc;
+    font-family: 'Jost', sans-serif;
+}
+
+nav ul li a:hover,
+nav ul li a:active{
+    text-transform: uppercase;
+}
+
+
+/*
+=========== FOOTER ============
+*/
+footer{
+    height: 100px;
+    border: 2px solid green;
+}
+
+/*==============RESPONSIVENESS===============*/
+
+/*---SMALL SCREENS---*/
+@media screen and (max-width: 600px) {
+    nav ul{
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        list-style-type: none;
+    }
+
+    nav ul li{
+        padding: 10px 0px 10px 0px;
+    }
+
+    nav ul li a{
+        text-transform: uppercase;
+        /* color: #c7b409; */
+    }
+}
+
+
+/*---MEDIUM SCREENS---*/
+@media (min-width: 601px) and (max-width: 900px){
+    .nav-container{
+        padding: 20px 50px 20px 50px;
+    }
+}
+
+
+/*---LARGE SCREENS---*/
+/* @media (min-width 901px){} */

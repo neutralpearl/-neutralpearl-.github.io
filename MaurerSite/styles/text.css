@@ -61,16 +61,17 @@ a{
 }
 
 a:visited{
-    color: #c7b409;
+    color: #e6e6e6cc;
 }
 
 a:hover{
     color: #df9c0b;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 a:active{
     color: #d39207;
+    font-weight: 400;
     text-decoration: underline solid;
 }
 
