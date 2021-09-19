@@ -25,7 +25,9 @@ header{
 */
 nav{
     height: auto;
-    /* border: 2px solid orange; */
+    position: sticky; /* for wide screen only */
+    top: 0;
+    z-index: 50;
 }
 
 .nav-container{
@@ -57,19 +59,68 @@ nav ul li a:active{
     text-transform: uppercase;
 }
 
+/*
+=========== MEDIA FEED ============
+*/
+main{
+    height: auto;
+}
+
+.main-container{
+    padding: 30px 5% 30px 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+=========== MEDIA FEED ============
+*/
+
+
 
 /*
 =========== FOOTER ============
 */
 footer{
-    height: 100px;
-    border: 2px solid green;
+    height: 200px;
+    background-color: #1d1d1d;
 }
+
+.footer-container{
+    margin: 20px 8% 20px 8%;
+    padding-top: 60px;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    grid-template-areas:
+    "ct sp";
+    /* border: 1px solid green;*/
+} 
+
+#copyright{
+    grid-area: ct;
+    /* border: 1px solid blue; */
+}
+
+#social-platforms{
+    grid-area: sp;
+    text-align: right;
+    /* border: 1px solid pink; */
+    /* needs refinement! */
+}
+
+
+
 
 /*==============RESPONSIVENESS===============*/
 
 /*---SMALL SCREENS---*/
 @media screen and (max-width: 600px) {
+    nav{
+        position: relative;
+    }
+
     nav ul{
         display: flex;
         flex-direction: column;
@@ -83,7 +134,6 @@ footer{
 
     nav ul li a{
         text-transform: uppercase;
-        /* color: #c7b409; */
     }
 }
 
@@ -91,10 +141,9 @@ footer{
 /*---MEDIUM AND LARGE SCREENS---*/
 @media (min-width: 601px){
     .nav-container{
-        padding: 20px 8% 20px 50px;
+        padding: 20px 8% 20px 8%;
     }
 }
-
 
 /*---LARGE SCREENS---*/
 /* @media (min-width 901px){} */
