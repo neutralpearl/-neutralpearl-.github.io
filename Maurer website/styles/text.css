@@ -24,7 +24,7 @@ h2{
 
 h3{
     font-size: 24px;
-    font-family: 'Tinos', serif;
+    font-family: 'Noto Sans', serif;
     color: #e6e6e6cc;
 }
 
@@ -38,15 +38,39 @@ h4{
 
 p{
     font-size: 20px;
-    font-family: 'Mukta', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     color: #e6e6e6cc;
     /* color: #000; */
 }
 
 li{
-    font-size: 18px;
+    font-size: 22px;
+    line-height: 1.2em;
     font-family: 'Mukta', sans-serif;
     font-weight: 300;
     color: #e6e6e6cc;
     /* color: #000; */
 }
+
+a{
+    font-size: 22px;
+    font-family: 'Mukta', sans-serif;
+    color: #c7b409;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:visited{
+    color: #c7b409;
+}
+
+a:hover{
+    color: #df9c0b;
+    font-weight: 500;
+}
+
+a:active{
+    color: #d39207;
+    text-decoration: underline solid;
+}
+

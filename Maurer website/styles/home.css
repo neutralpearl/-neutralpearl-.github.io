@@ -2,6 +2,9 @@
 @import "global.css";
 @import "text.css";
 
+/*
+=========== HEADER ============
+*/
 .header-container-background{
     display: block;
     max-width: 100%;
@@ -38,12 +41,47 @@
     padding: 20px 0px 0px 25px;
 }
 
-#home-primary-nav{
-    display: inline;
+
+/*
+=========== NAV ============
+*/
+.nav-container{
+    padding: 20px 30px 20px 30px;
+    background-color: #1d1d1d;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right;
+    list-style-type: none;
+    margin: 0;
+
+}
+
+nav ul li a{
+    padding: 5px 0px 5px 30px;
+    font-weight: 300;
+    color: #e6e6e6cc;
+    /* text-transform: uppercase; */
+    font-family: 'Jost', sans-serif;
+}
+
+nav ul li a:hover{
+
+    text-transform: uppercase;
+}
+
+nav ul li a:active{
+    text-transform: uppercase;
 }
 
 
-/*======RESPONSIVENESS========*/
+/*
+=========== RESPONSIVENESS ============
+*/
+
 /* @media (min-width 600px) and (max-width 900px) {
     .header-container{
         display: inline;
