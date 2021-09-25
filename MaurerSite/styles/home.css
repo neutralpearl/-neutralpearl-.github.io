@@ -49,7 +49,6 @@
 =========== MAIN ============
 */
 
-
 #about-jeff-maurer{
     display: flow-root;
 }
@@ -75,6 +74,10 @@
     height: auto; 
     display: flex;
     flex-direction: column;
+}
+
+#recent-highlights h2{
+    padding: 20px;
 }
 
 .media-grid{
@@ -107,16 +110,16 @@
 .media-source{
     display: flex;
     flex-direction: row;
+    grid-area: source;
 }
 
 img.substack-icon{
     padding: 5px 15px 5px 5px;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     z-index: 8;
 }
 .media-source-label{
-    font-size: 18px;
     display: block;
     z-index: 7;
     padding: 5px 0px 5px 0px;
@@ -125,7 +128,7 @@ img.substack-icon{
 .media-source-label .substack{
     background-color: #f3c016;
     width: auto;
-    padding: 5px 10px 5px 10px;
+    padding: 8px 15px 8px 15px;
     margin-bottom: 10px;
     border-radius: 5px;
 }
@@ -133,12 +136,15 @@ img.substack-icon{
 .media-source-label .guest{
     background-color: #0e4bbb;
     width: auto;
-    padding: 5px 10px 5px 10px;
+    padding: 8px 15px 8px 15px;
     margin-bottom: 10px;
     border-radius: 5px;
 }
 
 .media-source-label p{
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
     display: inline;
     color: #fff;
 }
@@ -150,11 +156,20 @@ img.substack-icon{
     color: #1d1d1d;
 }
 
+.media-title{
+    grid-area: title;
+}
+
 .media-title h3{
+    display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-size: 26px;
     font-weight: 800;
     margin-top: 15px;
+}
+
+.media-caption{
+    grid-area: caption;
 }
 
 .media-caption p{
@@ -165,18 +180,23 @@ img.substack-icon{
     color: #444343;
 }
 
+.media-preview{
+    grid-area: preview;
+}
+
 .media-preview p{
     margin-top: 10px;
     border-top: 1px solid #e6e6e6cc;
     padding-top: 10px;
     font-size: 17px;
     overflow-y: hidden;
+    grid-area: caption;
 }
 
 .media-thumbnail{
     display: flex;
     justify-content: center;
-    /* border: 1px solid red; */
+    grid-area: thumb;
 }
 
 img.media-image{
@@ -189,6 +209,7 @@ img.media-image{
 .read-more{
     margin-top: 10px;
     text-align: right;
+    grid-area: more;
 }
 
 .read-more a{
@@ -249,5 +270,116 @@ img.media-image{
     #headshot{
         max-width: 400px;
         max-height: auto;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 869px){
+    .media-grid{
+        margin: 30px 0px 30px 0px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        grid-gap: 40px;
+        justify-content: center;
+    }
+
+    .media-card{
+        margin: 0px 60px 0px 60px;
+        height: 320px; /* placeholder */
+        width: auto; 
+    }
+    .media-card-contents{
+        margin: 3px;
+        padding: 10px 15px 10px 15px;
+        background-color:#fff; 
+        height: 100%;
+        z-index: 6;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        grid-template-rows: repeat(5,20%);
+        grid-template-areas:
+        "source title"
+        "thumb caption"
+        "thumb preview"
+        "thumb preview"
+        "thumb more"
+    }
+
+    .media-source{
+        padding-top: 10px;
+    }
+
+    .media-source-label .guest{
+        font-size: 15px;
+    }
+
+    .media-caption{
+        padding-top: 15px;
+    }
+
+    .media-thumbnail{
+        margin-top: -15px;
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+    
+    img.media-image{
+        width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media (min-width: 870px) and (max-width: 1090px){
+    .media-grid{
+        margin: 30px 0px 30px 0px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        grid-gap: 40px;
+        justify-content: center;
+    }
+
+    .media-card{
+        margin: 0px 60px 0px 60px;
+        height: 300px; /* placeholder */
+        width: auto; 
+    }
+    .media-card-contents{
+        margin: 3px;
+        padding: 10px 15px 10px 15px;
+        background-color:#fff; 
+        height: 100%;
+        z-index: 6;
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: repeat(8,12.5%);
+        grid-template-areas:
+        "source title"
+        "source title"
+        "thumb caption"
+        "thumb preview"
+        "thumb preview"
+        "thumb preview"
+        "thumb preview"
+        "thumb more";
+    }
+
+    .media-source{
+        padding-top: 10px;
+    }
+
+    .media-thumbnail{
+        margin-top: -10px;
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+    
+    img.media-image{
+        width: 100%;
+        max-height: 100%;
+        object-fit: contain;
     }
 }

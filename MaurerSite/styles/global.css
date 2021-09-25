@@ -13,12 +13,9 @@ body{
 /*
 =========== HEADER ============
 */
-
 header{
     height: auto;
-    /* border: 2px solid red; */
 }
-
 
 /*
 =========== NAV ============
@@ -45,7 +42,7 @@ nav ul{
 }
 
 nav ul li{
-    padding: 10px 0px 10px 30px;
+    padding: 10px 0px 10px 40px;
 }
 
 nav ul li a{
@@ -53,10 +50,10 @@ nav ul li a{
     color: #e6e6e6cc;
     font-family: 'Jost', sans-serif;
 }
-
 nav ul li a:hover,
 nav ul li a:active{
     text-transform: uppercase;
+    font-size: 20px;
 }
 
 /*

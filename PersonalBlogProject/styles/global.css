@@ -3,3 +3,109 @@ body{
     padding: 0px;
     overflow: scroll;
 }
+
+/*--Page Structure--*/
+.container{
+    width:100%;
+    background-color: rgb(28, 28, 28);
+}
+
+/*--Header Elements--*/
+header.all-pages{
+    grid-area: hd;
+    background-color:rgb(116, 1, 64);
+    padding: 15px 5% 15px 5%;
+    display:grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 70 30%;
+    grid-template-areas:
+    "hdT hdN";
+    align-items: center;  
+    color: #ffffff;
+}
+
+#header-text{
+    grid-area: hdT;
+}
+
+#header-nav{
+    position: absolute;
+    right: 25px;
+    grid-area: hdN;
+}
+
+#header-nav-icons{
+    height: 20px;
+    width: 20px;
+}
+
+/*--Blog Nav Elements--*/
+.nav-menu{
+    background-color:rgb(63, 0, 31);
+    box-shadow: 
+        inset 0px 11px 8px -10px rgb(43, 0, 21),
+        inset 0px -11px 8px -10px rgb(43, 0, 21);
+    padding: 0px 20px 0px 20px;
+    grid-area: nv;
+    display:flex;
+    flex-direction: column;
+    margin: 0px;
+    z-index: 0;
+}
+
+#blog-cat-links{
+    display: grid;
+    margin-top: -20px;
+    grid-template-columns: 100%;
+    grid-template-rows: 40px 40px 40px;
+}
+
+/*--Footer Elements--*/
+footer.global{
+    padding: 0px 5% 20px 5%;
+    grid-area: ft;
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 60px, 1fr;
+    grid-template-areas:
+    "sb"
+    "fm";
+    background-color:rgb(128, 0, 70);
+    color:#ffffff;
+    z-index: 98;
+}
+
+#subscribe{
+    grid-area:sb;
+}
+
+#signup{
+    grid-area:fm;
+}
+
+label{
+    font-family: Urbanist, sans-serif;
+}
+
+input{
+    padding: 3px;
+    width: 250px;
+    margin-right: 5px;
+}
+
+button.subscription{
+    font-family: Urbanist, sans-serif;
+    color: #fff;
+    background-color: #000;
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+}
+
+/*-----Alt formatting for SMALL displays------*/
+@media(max-width: 600px){
+    input{
+        width: 150px;
+    }
+}
+/*-----Alt formatting for LARGE displays------*/
+/* @media(min-width: 901px){} */

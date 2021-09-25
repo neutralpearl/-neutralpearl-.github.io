@@ -1,5 +1,4 @@
 @import "text.css";
-@import "shared.css";
 @import "global.css";
 
 /*--Blog Post Layout--*/
@@ -24,7 +23,7 @@ article{
     padding: 0px 20px 20px 20px;
     display:flex; 
     flex-direction:column;
-    box-shadow: 0px 0px 2px 2px #494949; 
+    box-shadow: 0px 0px 2px 3px #494949; 
 }
 
 article a {
@@ -52,6 +51,7 @@ article a:visited {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
 }
 
 img.featured{
@@ -115,7 +115,7 @@ img.featured{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    box-shadow: 0px 0px 2px 2px #3b2931; 
+    box-shadow: 0px 0px 2px 2px #49303b; 
 }
 
 #avatar{

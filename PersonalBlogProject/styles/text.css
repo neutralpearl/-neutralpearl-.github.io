@@ -6,7 +6,7 @@
 /*--Header Styles--*/
 h1{
     font-family: 'Bubbler One', sans-serif;
-    font-size: 36px;
+    font-size: 40px;
     font-style: italic;
     text-transform: uppercase;
     text-shadow: 4px 4px 4px rgb(80, 0, 40);
@@ -38,7 +38,7 @@ ul,
 ol{
     font-family: 'Oxygen', sans-serif;
     font-size: 16px;
-    color:#fff;
+    color:rgb(255, 228, 221);
 }
 
 p.caption{
