@@ -13,27 +13,26 @@
  * 
 */
 
-/**
- * Define Global Variables
- * 
-*/
+/* - Global Variables - */
+const navBar = document.getElementById('navbar__list');
+const navItems = document.querySelectorAll('.landing__container');
+
+/* - Helper Functions - */
+function getSectionHeader (div) {
+    return div.firstElementChild.textContent;
+}
 
 
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
+/* - Main Functions - */
 
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
 
 // build the nav
+let navHeaders = '';
+for (i=0; i<navItems.length; i++){
+    let sectionHeader = getSectionHeader(navItems[i]);
+    navHeaders += `<li>${sectionHeader}</li>`;
+}
+navBar.innerHTML = navHeaders;
 
 
 // Add class 'active' to section when near top of viewport

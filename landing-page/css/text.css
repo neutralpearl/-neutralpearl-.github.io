@@ -1,0 +1,29 @@
+/* Typography General*/
+h1 {
+    font-family: 'Cabin', sans-serif;
+    font-size: 4em;
+    padding: 2em 1rem;
+}
+@media only screen and (min-width: 601px){
+    h1 {
+        font-size: 7em;
+        padding: 2em 4rem 1em;
+    }
+}
+
+h2 {
+    border-bottom: 1px solid #cc1;
+    font-family: 'Cabin', Sans-Serif;
+    font-size: 3em;
+    color: #fff;
+}
+
+p {
+    font-family: 'Cabin', Sans-Serif;
+    line-height: 1.6em;
+    color: #eee;
+}
+
+a {
+    color: rgb(207, 193, 0);
+}

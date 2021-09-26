@@ -1,70 +1,70 @@
-/*
- *
- * CSS written based on SMACSS architecture.
- * To learn more, visit: http://smacss.com/
- * 
- * For simplicity, no reset or normalize is added. 
- * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
- *
-*/
-
+@import "text.css";
 
 /* ---- Base Rules ---- */
 body {
+    background: #000;
+    background-image: url('../media/green-swooshy.jpg');
+    background-size: cover;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Cabin', serif;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+     "head"
+     "main"
+     "foot";
+}
+
+.page__header{
+    grid-area: head;
+    position: sticky;
+}
+
+.page__main{
+    grid-area: main;
+}
+
+.main-container {
     background: rgb(136,203,171);
-    /* background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%); */
-    margin: 0;
+    margin: 50px 0px 0px 25%;
+    padding: 0;
     font-family: 'Cabin', serif;
     color: #fff;
+    display: flex;
+    flex-direction: column;
 }
-
-
-/* Typeography General*/
-h1 {
-    font-family: 'Cabin', sans-serif;
-    font-size: 3em;
-    margin: 2em 1rem;
-}
-
-@media only screen and (min-width: 35em){
-    h1 {
-        font-size: 7em;
-        margin: 2em 4rem 1em;
+@media(max-width:600px){
+    .main-container {
+        margin: 10% 0% 10% 10%;
+        padding: 0;
     }
 }
 
-h2 {
-    border-bottom: 1px solid #cc1;
-    font-family: 'Cabin', Sans-Serif;
-    font-size: 3em;
-    color: #fff;
+.page__footer{
+    grid-area: foot;
 }
 
-p {
-    font-family: 'Cabin', Sans-Serif;
-    line-height: 1.6em;
-    color: #eee;
-}
 
-a {
-    color: rgb(207, 193, 0);
-}
+
 
 /* ---- Layout Rules ---- */
-main {
-    margin: 10vh 1em 10vh;
-}
+/* main {
+} */
 
 .main-hero {
-    min-height: 40vh;
+    min-height: 80vh;
     padding-top: 3em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 section {
     position: relative;
     min-height: 80vh;
 }
-
 
 /* ---- Module Rules ---- */
 
@@ -77,39 +77,37 @@ section {
 
 .navbar__menu li {
     display: inline-block;
-}
-
-.navbar__menu .menu__link {
-    display: block;
-    padding: 1em;
+    color: #fff;
+    padding: 1em 2em 1em 2em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
 }
 
-.navbar__menu .menu__link:hover {
+.navbar__menu li:hover {
     background: #333;
-    color: #fff;
+    color: rgb(241, 238, 4);
     transition: ease 0.3s all;
 }
 
 /* Header Styles */
 .page__header {
-    background: #fff;
+    background: #000;
     position: fixed;
     top: 0;
     width: 100%;
+    height: 50px; /*placeholder*/
     z-index: 5;
 }
 
 /* Footer Styles */
 .page__footer {
     background: #000;
-    padding: 3em;
     color: #fff;
+    /* width: 100%; */
 }
 
 .page__footer p{
+    padding: 3em;
     color: #fff;
 }
 
@@ -117,16 +115,16 @@ section {
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
 .landing__container {
-    padding: 1em;
+    padding: 10%;
     text-align: left;
 }
 
-@media only screen and (min-width: 35em){
+/* @media only screen and (min-width: 35em){
     .landing__container {
         max-width: 50em;
         padding: 4em;
     }
-}
+} */
 
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
@@ -134,95 +132,18 @@ section:nth-of-type(even) .landing__container {
     text-align: right; 
 }
 
-/* Background Circles */
-/* Note that background circles are created with psuedo elements before and after */
-/* Circles appear to be random do to use of :nth-of-type psuedo class */
-/* section:nth-of-type(odd) .landing__container::before {
-    content: '';
-    background: rgba(255, 255, 255, 0.187);
-    position: absolute;
-    z-index: -5;
-    width: 20vh;
-    height: 20vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
-section:nth-of-type(even) .landing__container::before {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
-    position: absolute;
-    top: 3em;
-    right: 3em;
-    z-index: -5;
-    width: 10vh;
-    height: 10vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
-section:nth-of-type(3n) .landing__container::after {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -5;
-    width: 10vh;
-    height: 10vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
-section:nth-of-type(3n + 1) .landing__container::after {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
-    position: absolute;
-    right: 20vw;
-    bottom: -5em;
-    z-index: -5;
-    width: 15vh;
-    height: 15vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-} */
-
 
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.your-active-class {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    display: block;
 }
 
 section.your-active-class .landing__container::before {
     opacity: 1;
-    animation: rotate 4s linear 0s infinite forwards;
 }
 
 section.your-active-class .landing__container::after {
     opacity: 1;
-    animation: rotate 5s linear 0s infinite forwards reverse;
 }
-
-/* Section Active Styles Keyframe Animations */
-/* @keyframes rotate {
-	from {
-		transform: rotate(0deg)
-		           translate(-1em)
-		           rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg)
-		           translate(-1em) 
-		           rotate(-360deg);
-	}
-} */
