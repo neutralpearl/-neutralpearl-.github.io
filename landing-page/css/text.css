@@ -1,4 +1,4 @@
-/* Typography General*/
+/* Typography*/
 h1 {
     font-family: 'Cabin', sans-serif;
     font-size: 4em;
@@ -12,18 +12,42 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid #cc1;
+    border-bottom: 1px solid rgb(29, 63, 255);
     font-family: 'Cabin', Sans-Serif;
     font-size: 3em;
     color: #fff;
 }
 
 p {
-    font-family: 'Cabin', Sans-Serif;
-    line-height: 1.6em;
+    font-family: 'Nunito', Sans-Serif;
+    font-size: 16px;
+    line-height: 1.7em;
     color: #eee;
 }
 
 a {
-    color: rgb(207, 193, 0);
+    color: rgb(48, 116, 241);
+    text-decoration: none;
 }
+
+a:hover {
+    color: rgb(3, 73, 202);
+}
+
+.navbar__menu li a{
+    font-family: 'Nunito', Sans-Serif;
+    font-size: 20px;
+    color: #fff;
+    padding: 0px 10px 10px 10px;
+}
+@media(max-width:600px){
+    .navbar__menu li a{
+        font-size: 16px;
+        padding: 0px 10px 10px 10px;
+    }
+}
+.navbar__menu li a:hover {
+    color: rgb(48, 116, 241);
+    border-bottom: 2px solid rgb(29, 63, 255);
+}
+
