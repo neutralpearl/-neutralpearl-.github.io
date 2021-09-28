@@ -15,6 +15,7 @@ body {
      "head"
      "main"
      "foot";
+     scroll-behavior: smooth;
 }
 
 .page__header{
@@ -27,7 +28,7 @@ body {
 }
 
 .main-container {
-    background: rgb(78, 94, 91);
+    background: rgb(79, 90, 88);
     margin: 50px 0px 0px 25%;
     padding: 0;
     font-family: 'Cabin', serif;
@@ -93,6 +94,9 @@ section {
     display: inline-block;
     padding: 1em 2em 1em 2em;
 }
+.navbar__menu li.active {
+    background-color:rgb(26, 26, 26)
+}
 
 @media(max-width:600px){
     .navbar__menu ul {
@@ -102,7 +106,6 @@ section {
         padding: 0px 0px 0px 10px;
     }
 }
-
 /* (navbar link styles defined in text.css) */
 
 
@@ -135,15 +138,17 @@ section:nth-of-type(even) .landing__container {
 
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
-/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
+
+section.active-section {
     display: block;
+    background-color:rgb(50, 77, 72);
+    /* background-color:linear-gradient (rgb(79, 90, 88),rgb(50, 77, 72)); */
 }
 
-section.your-active-class .landing__container::before {
+section.active-section .landing__container::before {
     opacity: 1;
 }
 
-section.your-active-class .landing__container::after {
+section.active-section .landing__container::after {
     opacity: 1;
 }
