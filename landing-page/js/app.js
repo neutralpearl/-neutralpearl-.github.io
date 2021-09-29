@@ -95,6 +95,7 @@ setInterval( () => {
         //     }
         // }
 
+        // NOT WORKING FOR MOBILE :(
         if (inViewport() === 'Section 1'){
             for (let i=0; i<sectionContainers.length; i++){
                 if (i === 0) {

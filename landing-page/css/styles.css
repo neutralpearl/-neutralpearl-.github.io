@@ -118,15 +118,17 @@ section {
 
 @media(max-width:730px){
     .navbar__menu ul {
-        margin: 1em 1em 0px 1em;
-        padding-bottom: 10px;
+        margin: .5em 1em 0px 1em;
     }
     .navbar__menu li {
-        padding: 0px 0px 0px 10px;
+        padding: 10px 0px 10px 10px;
     }
     .navbar__menu li a{
-        padding: 0px 10px 10px 10px;
+        padding: 10px;
         font-size: 18px;
+    }
+    .navbar__menu li.active {
+        background-color:rgba(14, 34, 31, 0.884);
     }
 }
 
