@@ -6,13 +6,13 @@ h1 {
 }
 @media only screen and (min-width: 601px){
     h1 {
-        font-size: 7em;
-        padding: 2em 4rem 1em;
+        font-size: 6em;
+        padding: 2em 4rem 2em;
     }
 }
 
 h2 {
-    border-bottom: 1px solid rgb(29, 63, 255);
+    border-bottom: 1px solid rgb(11, 35, 172);
     font-family: 'Cabin', Sans-Serif;
     font-size: 3em;
     color: #fff;
@@ -29,25 +29,10 @@ a {
     color: rgb(48, 116, 241);
     text-decoration: none;
 }
-
 a:hover {
     color: rgb(3, 73, 202);
 }
-
-.navbar__menu li a{
-    font-family: 'Nunito', Sans-Serif;
-    font-size: 20px;
-    color: #fff;
-    padding: 0px 10px 10px 10px;
-}
-@media(max-width:600px){
-    .navbar__menu li a{
-        font-size: 16px;
-        padding: 0px 10px 10px 10px;
-    }
-}
-.navbar__menu li a:hover {
-    color: rgb(48, 116, 241);
-    border-bottom: 2px solid rgb(29, 63, 255);
+a:visited {
+    text-decoration: none;
 }
 

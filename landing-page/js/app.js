@@ -14,30 +14,23 @@ for (i=0; i<navSections.length; i++){
     let sectionElement = navSections[i].parentElement;
     sectionContainers.push(sectionElement);
 }
-// first paragraph within sections linked from navBar
-const sectionParagraphs = []
-for (i=0; i<navSections.length; i++){
-    let sectionParagraph = navSections[i].querySelector('p');
-    sectionParagraphs.push(sectionParagraph);
-}
 
 /* - Helper Functions - */
 
 // returns the content between the h2 tags for divs in .landing__container class
-function getSectionHeader (div) {
+const getSectionHeader = (div) => {
     return div.firstElementChild.textContent;
 }
 // returns the id of the section which contains each div in .landing__container class
-function getSectionId (div) {
+const getSectionId = (div) => {
     return div.parentElement.id;
 }
 
 // for each section to be added to navBar:
 // // get the header & id to populate the li content
-// // create a new li element
-// // set the content & id of new li
+// // create new li element, assign its content & id
 // // append new li to navBar ul
-function navBuilder () {
+const navBuilder = () => {
     for (let i=0; i<navSections.length; i++){
         let sectionHeader = getSectionHeader(navSections[i]);
         let sectionId = getSectionId(navSections[i]);
@@ -49,80 +42,125 @@ function navBuilder () {
     }
 }
 
+// get dimensions in viewport for each section
+const getRectSections = () => {
+    let array = [];
+    for (let i=0; i<sectionContainers.length; i++){
+        let rect = sectionContainers[i].getBoundingClientRect();
+        array.push(rect);
+    }
+    return array;
+}
+
 // returns the section currently in the viewport
-function inViewport() {
-    const rectSection1 = sectionParagraphs[0].getBoundingClientRect();
-    const rectSection2 = sectionParagraphs[1].getBoundingClientRect();
-    const rectSection3 = sectionParagraphs[2].getBoundingClientRect();
-    if (rectSection1.top >= 0 && rectSection1.left >= 0 && rectSection1.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
-    rectSection1.right <= (window.innerWidth || document. documentElement.clientWidth)){
-        return 'Section 1';
-    } else if (rectSection2.top >= 0 && rectSection2.left >= 0 && rectSection2.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
-    rectSection2.right <= (window.innerWidth || document. documentElement.clientWidth)){
-        return 'Section 2';
-    } else if (rectSection3.top >= 0 && rectSection3.left >= 0 && rectSection3.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
-    rectSection3.right <= (window.innerWidth || document. documentElement.clientWidth)){
-        return 'Section 3';
-    } else {
-        return 'other';
+const inViewport = () => {
+    let rectSections = getRectSections();
+    for (i=0; i<rectSections.length; i++){
+        if (rectSections[i].top >= 0 && rectSections[i].left >= 150){
+            i++;
+            return `Section ${i}`;
+        }
     }
 }
 
-// toggles section & corresponding navItem to active when in viewport
-function sectionVisible () {
-    // ADJUST TO DETECT CHANGE IN inViewport output
-    let t1=performance.now();
-    let inViewportT1 = inViewport();
-    
-
-
-    if (inViewport() === 'Section 1'){
-        sectionContainers[0].classList.toggle("active-section");
-        navItems[0].classList.toggle('active');
-        return 'Section 1 active';
-    } 
-    if (inViewport() === 'Section 2'){
-        sectionContainers[1].classList.toggle("active-section");
-        navItems[1].classList.toggle('active');
-        return 'Section 2 active';
-    }
-    if (inViewport() === 'Section 3'){
-        sectionContainers[2].classList.toggle("active-section");
-        navItems[2].classList.toggle('active');
-        return 'Section 3 active';
-    }
-}
-setTimeout(sectionVisible, 1000);
-    
 /* - Main Functions - */
 
 // dynamically build nav once DOM content is loaded
 document.addEventListener('DOMContentLoaded', navBuilder, false);
 
-// Scroll to anchor ID using scrollTO event
+// Add class 'active' to section when near top of viewport
+
+// // execute function every 500ms
+setInterval( () => {
+    if ( hasScrolled ) {
+        // reset boolean 
+        hasScrolled = false;
+        // add "active" classes to section & its nav item when that section is in the viewport
+
+        //more concise draft — doesn't work yet
+        // for (let h=1; h<(sectionContainers.length+1); h++){
+        //     while (inViewport() === `Section [h]`){
+        //         for (let i=0; i<sectionContainers.length; i++){
+        //             console.log(`i=${i}`);
+        //             if (i === (h-1)) {
+        //                 sectionContainers[i].classList.add('active-section');
+        //                 navItems[i].classList.add('active');
+                        
+        //             } else {
+        //                 sectionContainers[i].classList.remove('active-section');
+        //                 navItems[i].classList.remove('active');
+        //             }
+        //         }
+        //         console.log(`h=${h}`);
+        //     }
+        // }
+
+        if (inViewport() === 'Section 1'){
+            for (let i=0; i<sectionContainers.length; i++){
+                if (i === 0) {
+                    sectionContainers[i].classList.add('active-section');
+                    navItems[i].classList.add('active');
+                } else {
+                    sectionContainers[i].classList.remove('active-section');
+                    navItems[i].classList.remove('active');
+                }
+            }
+        } else if (inViewport() === 'Section 2'){
+            for (let i=0; i<sectionContainers.length; i++){
+                if (i === 1) {
+                    sectionContainers[i].classList.add('active-section');
+                    navItems[i].classList.add('active');
+                } else {
+                    sectionContainers[i].classList.remove('active-section');
+                    navItems[i].classList.remove('active');
+                }
+            }
+        } else if (inViewport() === 'Section 3'){
+            for (let i=0; i<sectionContainers.length; i++){
+                if (i === 2) {
+                    sectionContainers[i].classList.add('active-section');
+                    navItems[i].classList.add('active');
+                } else {
+                    sectionContainers[i].classList.remove('active-section');
+                    navItems[i].classList.remove('active');
+                }
+            }
+        } else if (inViewport() === 'Section 4'){
+            for (let i=0; i<sectionContainers.length; i++){
+                if (i === 3) {
+                    sectionContainers[i].classList.add('active-section');
+                    navItems[i].classList.add('active');
+                } else {
+                    sectionContainers[i].classList.remove('active-section');
+                    navItems[i].classList.remove('active');
+                }
+            }
+        }
+    }
+}, 500);
+
+setInterval( () => {
+    if ( !hasScrolled ) {
+        pageHeader.setAttribute('style','background-color: #000');
+    }
+    if ( hasScrolled ) {
+        pageHeader.setAttribute('style','background-color: hsla(0, 0%, 0%, 0.850)');
+    }
+}, 100);
+
+/* - Events - */
+
+// // toggle variable to 'true' when the user has started scrolling
+let hasScrolled = false;
+window.onscroll = () => hasScrolled = true;
+
+// Scroll to section on link click
 
 // // sets click listener for each item in navBar
-// // prevents default jump and implements scroll instead
+// // prevents default jump; implements scroll instead
 for (let i=0; i<navItems.length; i++){
     navItems[i].addEventListener('click', function (event) {
         event.preventDefault();
         navSections[i].scrollIntoView(true, {behavior: 'smooth', block: 'top', inline: 'nearest'});
     });
 }
-
-// Add class 'active' to section when near top of viewport
-
-// // 
-document.addEventListener('scroll', sectionVisible, false);
-// document.addEventListener('scroll', scrollStopper, false);
-
-
-/* - Events - */
-
-
-// Scroll to section on link click
-
-
-
-
-
