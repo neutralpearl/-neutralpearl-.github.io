@@ -1,6 +1,6 @@
 /* 
 
-not finished! need to adjust nav menu for mobile! 
+not finished! need to fix width for 
 
 */
 
@@ -23,6 +23,12 @@ body {
      "main"
      "foot";
      scroll-behavior: smooth;
+}
+
+@media(max-width:730px){
+    body {
+        grid-template-rows: 80px 1fr auto;
+    }
 }
 
 .page__header{
@@ -132,7 +138,6 @@ section {
         align-content: center;
         justify-content: center;
         text-align: center;
-        border: 1px solid salmon;
     }
     .navbar__menu li {
         padding: 10px 0px 10px 10px;
