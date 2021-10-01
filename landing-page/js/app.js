@@ -13,7 +13,11 @@ const sectionContainers = []
 for (i=0; i<navSections.length; i++){
     let sectionElement = navSections[i].parentElement;
     sectionContainers.push(sectionElement);
-}
+// image galleries within sections
+sectionGalleries = document.querySelectorAll('.thumbnail-container');
+}// // boolean to track when user has started scrolling
+let hasScrolled = false;
+
 
 /* - Helper Functions - */
 
@@ -22,19 +26,8 @@ const getSectionHeader = (div) => {
     return div.firstElementChild.textContent;
 }
 
-// for each section to be added to navBar:
-// // get the header & id to populate the li content
-// // create new li element, assign its content & id
-// // append new li to navBar ul
-const navBuilder = () => {
-    for (let i=0; i<navSections.length; i++){
-        let sectionHeader = getSectionHeader(navSections[i]);
-        let navItem = document.createElement('li');
-        // need to use id to implement scroll-to
-        navItem.innerHTML = `<a id="nav-link-${i+1}">${sectionHeader}</a>`;
-        navItem.className = 'nav-link'; // is this necessary?
-        navBar.appendChild(navItem);
-    }
+const getSectionId = (div) => {
+    return div.parentElement.id;
 }
 
 // get dimensions in viewport for each section
@@ -60,26 +53,40 @@ const inViewport = () => {
 
 /* - Main Functions - */
 
-// dynamically build nav once DOM content is loaded
-document.addEventListener('DOMContentLoaded', navBuilder, false);
+// for each section to be added to navBar:
+// // get the header & id to populate the li content
+// // create new li element, assign its content & id
+// // append new li to navBar ul
+const navBuilder = () => {
+    for (let i=0; i<navSections.length; i++){
+        let sectionHeader = getSectionHeader(navSections[i]);
+        let sectionId = getSectionId(navSections[i]);
+        let navItem = document.createElement('li');
+        // need to use id to implement scroll-to
+        navItem.innerHTML = `<a data-id="${sectionId}" class="">${sectionHeader}</a>`;
+        navBar.appendChild(navItem);
+    }
+}
 
-// Add class 'active' to section when near top of viewport
-// // execute function every 500ms
+// Add class 'active' to section & its nav item when near top of viewport
+// // execute function every 500ms to check for scrolling
 setInterval( () => {
     // only execute the function when scrolling has been detected
-    if ( hasScrolled ) {
-        // reset boolean so scroll-check will remain accurate
+    if (hasScrolled) {
+    // reset boolean so scroll-check will remain accurate
         hasScrolled = false;
-        // set section & nav item classes to "active" when that section is in the viewport
+        // toggle classes to "active" when that section is in the viewport
         for (let i=0; i<sectionContainers.length; i++){
             if (inViewport() === i){
                 for (let h=0; h<sectionContainers.length; h++){
                     if (h === i) {
                         sectionContainers[h].classList.add('active-section');
                         navItems[h].classList.add('active');
+                        sectionGalleries[h].classList.add('section-active');
                     } else {
                         sectionContainers[h].classList.remove('active-section');
                         navItems[h].classList.remove('active');
+                        sectionGalleries[h].classList.remove('section-active');
                     }
                 }
             } 
@@ -88,35 +95,47 @@ setInterval( () => {
 }, 500);
 
 
+// changes header & nav styling if user has scrolled below the main hero image
+const pastHero = () => {
+    let belowFold = sectionContainers[0];
+    if (window.scrollY >= belowFold.getBoundingClientRect().bottom) {
+        // darken header
+        pageHeader.classList.add('opaque');
+        // change class of nav links to change text color
+        for (let i=0; i<navItems.length; i++){
+            navItems[i].firstElementChild.classList.add('belowHero');
+        }
+        return true;
+    } else {
+        // header nearly transparent
+        pageHeader.classList.remove('opaque');
+        // keep default nav link styling
+        for (let i=0; i<navItems.length; i++){
+            navItems[i].firstElementChild.classList.remove('belowHero');
+        }
+        return false;
+    }
+}
+
+// scrolls to section when corresponding nav item clicked
+scrollToSection= (event) => {
+    if(event.target.nodeName === 'A'){
+        let sectionId = event.target.getAttribute('data-id');
+        let section = document.getElementById(sectionId);
+        section.scrollIntoView({behavior: "smooth", block: "end"});
+    }
+}
+
 /* - Events - */
 
-// // toggle variable to 'true' when the user has started scrolling
-let hasScrolled = false;
+// dynamically build nav once DOM content is loaded
+document.addEventListener('DOMContentLoaded', navBuilder, false);
+
+// toggle boolean upon scroll
 window.onscroll = () => hasScrolled = true;
 
-// make header slightly transparent while user is scrolling
-setInterval( () => {
-    if ( !hasScrolled ) {
-        pageHeader.setAttribute('style','background-color: rgba(79, 83, 100, 0.15)');
-    }
-    if ( hasScrolled ) {
-        pageHeader.setAttribute('style','background-color: rgba(73, 75, 85, 0.3)');
-        // navBar.setAttribute('style', 'display: none');
-    }
-}, 100);
+// change header & nav styling when user scrolls below the fold
+document.addEventListener('scroll', pastHero, false);
 
 // Scroll to section on link click
-
-// // sets click listener for each item in navBar
-// // prevents default jump; implements scroll instead
-
-const scrollToSection = (index) => {
-    navSections[index].scrollIntoView(true, {behavior: 'smooth', block: 'top', inline: 'nearest'});
-}
-
-// THIS ISN'T WORKING!
-for (let i=0; i<navItems.length; i++){
-    navItems[i].addEventListener('click', scrollToSection(i), false);
-}
-
-// add background to sticky header only when user has scrolled below the main hero image
+navBar.addEventListener('click', (event) => {scrollToSection(event)}, false);
