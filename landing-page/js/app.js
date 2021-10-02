@@ -13,9 +13,10 @@ const sectionContainers = []
 for (i=0; i<navSections.length; i++){
     let sectionElement = navSections[i].parentElement;
     sectionContainers.push(sectionElement);
-// image galleries within sections
-sectionGalleries = document.querySelectorAll('.thumbnail-container');
-}// // boolean to track when user has started scrolling
+}
+// image gallery div within each section
+const sectionGalleries = document.querySelectorAll('.thumbnail-container');
+// initialize boolean to track when user has started scrolling
 let hasScrolled = false;
 
 
@@ -51,6 +52,18 @@ const inViewport = () => {
     }
 }
 
+// populates gallery for each section with 5 thumbnails
+const galleryBuilder = (index) => {
+    for (let i=0; i<5; i++){
+        let imageLabel = getSectionId(navSections[index]);
+        let thumbnail = document.createElement('img');
+        thumbnail.className = 'gallery-thumbnail';
+        thumbnail.setAttribute('data-id',`${imageLabel}${i+1}`);
+        thumbnail.setAttribute('src',`media/${imageLabel}${i+1}.jpg`);
+        sectionGalleries[index].appendChild(thumbnail);
+    }
+}
+
 /* - Main Functions - */
 
 // for each section to be added to navBar:
@@ -65,6 +78,12 @@ const navBuilder = () => {
         // need to use id to implement scroll-to
         navItem.innerHTML = `<a data-id="${sectionId}" class="">${sectionHeader}</a>`;
         navBar.appendChild(navItem);
+    }
+}
+
+const buildAllGalleries = () => {
+    for (let i=0; i<sectionGalleries.length; i++){
+        galleryBuilder(i);
     }
 }
 
@@ -118,7 +137,7 @@ const pastHero = () => {
 }
 
 // scrolls to section when corresponding nav item clicked
-scrollToSection= (event) => {
+scrollToSection = (event) => {
     if(event.target.nodeName === 'A'){
         let sectionId = event.target.getAttribute('data-id');
         let section = document.getElementById(sectionId);
@@ -126,10 +145,24 @@ scrollToSection= (event) => {
     }
 }
 
+// scrolls to section when corresponding nav item clicked
+enlargeThumbnail = (event) => {
+    if(event.target.nodeName === 'IMG'){
+        console.log('clicked!');
+        let imageId = event.target.getAttribute('data-id');
+        let imageContainer = document.getElementById(imageId);
+        imageContainer.classList.remove('hidden');
+    }
+}
+
+
 /* - Events - */
 
 // dynamically build nav once DOM content is loaded
 document.addEventListener('DOMContentLoaded', navBuilder, false);
+
+// dynamically build nav once DOM content is loaded
+document.addEventListener('DOMContentLoaded', buildAllGalleries, false);
 
 // toggle boolean upon scroll
 window.onscroll = () => hasScrolled = true;
@@ -139,3 +172,8 @@ document.addEventListener('scroll', pastHero, false);
 
 // Scroll to section on link click
 navBar.addEventListener('click', (event) => {scrollToSection(event)}, false);
+
+// enlarge gallery images upon hovering over thumbnail
+for (let i=0; i<sectionGalleries.length; i++){
+    sectionGalleries[i].addEventListener('click', (event) => { enlargeThumbnail(event)}, false);
+};

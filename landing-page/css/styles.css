@@ -73,7 +73,7 @@ body {
 
 section {
     position: relative;
-    min-height: 80vh;
+    height: auto;
 }
 
 /* ---- Module Rules ---- */
@@ -221,4 +221,17 @@ section.active-section .landing__container::after {
 .gallery-thumbnail{
     height: 80px;
     width: 120px;
+    cursor: pointer;
+}
+
+.image-container{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 99;
+    background-color:rgba(14, 14, 14, 0.7);
+}
+
+.image-container.hidden{
+    visibility: hidden;
 }
