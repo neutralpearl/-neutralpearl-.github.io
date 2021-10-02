@@ -60,7 +60,6 @@ const inViewport = () => {
         }
     }
 }
-//&& (window.scrollY < rectSections[(index+1)].y)
 
 // populates gallery for each section with 5 thumbnails
 const galleryBuilder = (index) => {
@@ -105,6 +104,7 @@ const buildAllGalleries = () => {
 
 // add class 'active' to section, its gallery, & its nav item when near top of viewport
 // // execute function every 500ms to check for scrolling
+/*  approach derived from this tutorial: https://www.javascripttutorial.net/javascript-dom/javascript-scroll-events/ */
 setInterval( () => {
     // only execute the function when scrolling has been detected
     if (hasScrolled) {
@@ -195,6 +195,7 @@ document.addEventListener('DOMContentLoaded', navBuilder, false);
 document.addEventListener('DOMContentLoaded', buildAllGalleries, false);
 
 // toggle boolean upon scroll
+/*  approach derived from this tutorial: https://www.javascripttutorial.net/javascript-dom/javascript-scroll-events/ */
 window.onscroll = () => hasScrolled = true;
 
 // scroll to section upon link click
