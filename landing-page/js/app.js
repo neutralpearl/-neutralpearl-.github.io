@@ -27,11 +27,12 @@ const getSectionHeader = (div) => {
     return div.firstElementChild.textContent;
 }
 
+// returns the id for each section
 const getSectionId = (div) => {
     return div.parentElement.id;
 }
 
-// get dimensions in viewport for each section
+// returns array containing dimensions in viewport for each section
 const getRectSections = () => {
     let array = [];
     for (let i=0; i<sectionContainers.length; i++){
@@ -41,53 +42,69 @@ const getRectSections = () => {
     return array;
 }
 
-// NEED TO FIX VALUES FOR MOBILE (when section height > viewport height)
-// returns the section currently in the viewport
+// returns the index of the section currently in the viewport
 const inViewport = () => {
     let rectSections = getRectSections();
     for (let index=0; index<rectSections.length; index++){
-        if ((rectSections[index].top >= 0 && rectSections[index].height >= 300) || (rectSections[index].top <= 0 && rectSections[index].height > screen.height)){
-            return index;
+        // detects section in viewport on non-mobile devices (roughly)
+        if (window.innerWidth > 601){
+            if ((rectSections[index].top >= 0 && rectSections[index].height >= 300) || (rectSections[index].top <= 0 && rectSections[index].height > screen.height)){
+                return index;
+            }
+        } else {
+            // NOT WORKING YET!
+            // different selection rules for small screens
+            let screenHeight = window.innerHeight;
+            if (window.scrollY > rectSections[index].y){
+                return index;
+            }
         }
     }
 }
 
 // populates gallery for each section with 5 thumbnails
 const galleryBuilder = (index) => {
+    // get id to match with image file names
+    let imageLabel = getSectionId(navSections[index]);
+    // for each image to be added...
     for (let i=0; i<5; i++){
-        let imageLabel = getSectionId(navSections[index]);
+        // create new thumbnail
         let thumbnail = document.createElement('img');
+        // assign its class, data-id. & sourse
         thumbnail.className = 'gallery-thumbnail';
         thumbnail.setAttribute('data-id',`${imageLabel}${i+1}`);
         thumbnail.setAttribute('src',`media/${imageLabel}${i+1}.jpg`);
+        // add thumbnail to container div
         sectionGalleries[index].appendChild(thumbnail);
     }
 }
 
 /* - Main Functions - */
 
-// for each section to be added to navBar:
-// // get the header & id to populate the li content
-// // create new li element, assign its content & id
-// // append new li to navBar ul
+// build the nav
 const navBuilder = () => {
+    // for each section to be added to navBar...
     for (let i=0; i<navSections.length; i++){
+        // get the header & id to populate the li content
         let sectionHeader = getSectionHeader(navSections[i]);
         let sectionId = getSectionId(navSections[i]);
+        // create new li element, assign its content & id
         let navItem = document.createElement('li');
-        // need to use id to implement scroll-to
         navItem.innerHTML = `<a data-id="${sectionId}" class="">${sectionHeader}</a>`;
+        // append new li to navBar ul
         navBar.appendChild(navItem);
     }
 }
 
+// build galleries for all sections
 const buildAllGalleries = () => {
     for (let i=0; i<sectionGalleries.length; i++){
         galleryBuilder(i);
     }
 }
 
-// Add class 'active' to section & its nav item when near top of viewport
+// add class 'active' to section & its nav item when near top of viewport
+
 // // execute function every 500ms to check for scrolling
 setInterval( () => {
     // only execute the function when scrolling has been detected
@@ -114,46 +131,64 @@ setInterval( () => {
 }, 500);
 
 
-// changes header & nav styling if user has scrolled below the main hero image
+// change header & nav styling when user has scrolled below the main hero image
 const pastHero = () => {
     let belowFold = sectionContainers[0];
-    if (window.scrollY >= belowFold.getBoundingClientRect().bottom) {
-        // darken header
-        pageHeader.classList.add('opaque');
-        // change class of nav links to change text color
-        for (let i=0; i<navItems.length; i++){
-            navItems[i].firstElementChild.classList.add('belowHero');
+    // for non-mobile displays
+    if (window.innerWidth > 451){
+        // when user has scrolled beneath main hero
+        if (window.scrollY >= belowFold.getBoundingClientRect().bottom) {
+            // darken header
+            pageHeader.classList.add('opaque');
+            // change class of nav links to change text color
+            for (let i=0; i<navItems.length; i++){
+                navItems[i].firstElementChild.classList.add('belowHero');
+            }
+        } else {
+            // header nearly transparent
+            pageHeader.classList.remove('opaque');
+            // keep default nav link styling
+            for (let i=0; i<navItems.length; i++){
+                navItems[i].firstElementChild.classList.remove('belowHero');
+            }
         }
-        return true;
     } else {
-        // header nearly transparent
-        pageHeader.classList.remove('opaque');
-        // keep default nav link styling
-        for (let i=0; i<navItems.length; i++){
-            navItems[i].firstElementChild.classList.remove('belowHero');
+        // when first section reaches top of viewport on mobile
+        if (window.scrollY >= belowFold.getBoundingClientRect().top){
+            // hide header (including nav)
+            pageHeader.setAttribute('style','visibility: hidden');
+        } else {
+            // show transparent header above fold
+            pageHeader.setAttribute('style','visibility: visible');
+            pageHeader.classList.remove('opaque');
+            for (let i=0; i<navItems.length; i++){
+                navItems[i].firstElementChild.classList.remove('belowHero');
+            }
         }
-        return false;
     }
 }
 
-// scrolls to section when corresponding nav item clicked
+// scroll to section when corresponding nav item clicked
 scrollToSection = (event) => {
-    if(event.target.nodeName === 'A'){
+    // when link elements are clicked
+    if (event.target.nodeName === 'A'){
+        // identify section corresponding to link
         let sectionId = event.target.getAttribute('data-id');
         let section = document.getElementById(sectionId);
+        // initiate smooth scroll to that section
         section.scrollIntoView({behavior: "smooth", block: "end"});
     }
 }
 
-// scrolls to section when corresponding nav item clicked
-enlargeThumbnail = (event) => {
-    if(event.target.nodeName === 'IMG'){
-        console.log('clicked!');
-        let imageId = event.target.getAttribute('data-id');
-        let imageContainer = document.getElementById(imageId);
-        imageContainer.classList.remove('hidden');
-    }
-}
+// // activate modal lightbox
+// enlargeThumbnail = (event) => {
+//     if(event.target.nodeName === 'IMG'){
+//         console.log('clicked!');
+//         let imageId = event.target.getAttribute('data-id');
+//         let modalContainer = document.getElementById(imageId);
+//         modalContainer.classList.remove('hidden');
+//     }
+// }
 
 
 /* - Events - */
@@ -170,10 +205,10 @@ window.onscroll = () => hasScrolled = true;
 // change header & nav styling when user scrolls below the fold
 document.addEventListener('scroll', pastHero, false);
 
-// Scroll to section on link click
+// scroll to section upon link click
 navBar.addEventListener('click', (event) => {scrollToSection(event)}, false);
 
-// enlarge gallery images upon hovering over thumbnail
-for (let i=0; i<sectionGalleries.length; i++){
-    sectionGalleries[i].addEventListener('click', (event) => { enlargeThumbnail(event)}, false);
-};
+// // enlarge gallery images upon hovering over thumbnail
+// for (let i=0; i<sectionGalleries.length; i++){
+//     sectionGalleries[i].addEventListener('click', (event) => {enlargeThumbnail(event)}, false);
+// };
