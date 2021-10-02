@@ -5,10 +5,6 @@ Project completed for the Udacity Front End Web Dev course.
 
 ## Table of contents
 
-<!-- After you have introduced your project, it is a good idea to add a **Table of contents** or **TOC** as **cool** people say it. This would make it easier for people to navigate through your README and find exactly what they are looking for.
-
-Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README. -->
-
 - [Project Criteria](#project-criteria)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -21,6 +17,15 @@ Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README
 
 List from [Udacity rubric](https://review.udacity.com/#!/rubrics/2658/view) TK
 
+- All features are usable across modern desktop, tablet, and phone browsers
+- Styling has been added for active states
+- There are at least 4 sections that have been added to the page.
+- Navigation is built dynamically as an unordered list
+- It should be clear which section is being viewed while scrolling through the page 
+- When clicking an item from the navigation menu, the link should scroll to the appropriate section
+
+
+
 ## Installation
 
 Install details TK
@@ -31,11 +36,11 @@ Install details TK
 
 ## Usage
 
-To view this repo as website, go to https://neutralpearl.github.io/landing-page/index.hrml
+To view this repo as website, go to https://neutralpearl.github.io/landing-page/index.hml
 
 ## Development
 
-Implementation strategy TK
+Project is built upon starter page 
 
 ## License & Attributions
 
