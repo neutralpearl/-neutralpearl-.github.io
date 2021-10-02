@@ -191,14 +191,14 @@ scrollToSection = (event) => {
 // dynamically build nav once DOM content is loaded
 document.addEventListener('DOMContentLoaded', navBuilder, false);
 
-// dynamically build nav once DOM content is loaded
+// dynamically build galleries once DOM content is loaded
 document.addEventListener('DOMContentLoaded', buildAllGalleries, false);
 
 // toggle boolean upon scroll
 window.onscroll = () => hasScrolled = true;
 
-// change header & nav styling when user scrolls below the fold
-document.addEventListener('scroll', pastHero, false);
-
 // scroll to section upon link click
 navBar.addEventListener('click', (event) => {scrollToSection(event)}, false);
+
+// change header & nav styling when user scrolls below the fold
+document.addEventListener('scroll', pastHero, false);
