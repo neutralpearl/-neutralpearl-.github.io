@@ -1,9 +1,8 @@
-/* Typography*/
+/*  -- Typography -- */
+
 h1 {
     font-family: 'Birthstone', display;
-    /* font-family: 'Cabin', sans-serif; */
     color:rgb(184, 119, 46);
-    /* text-shadow: 5px 1px #28292b; */
     font-size: 9em;
     line-height: 1.2em;
     padding: 0.5em 2.5rem 1.5em;

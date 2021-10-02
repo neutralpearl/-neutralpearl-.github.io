@@ -35,10 +35,10 @@ const getSectionId = (div) => {
 // returns array containing dimensions in viewport for each section
 const getRectSections = () => {
     let array = [];
-    for (let i=0; i<sectionContainers.length; i++){
-        let rect = sectionContainers[i].getBoundingClientRect();
+    sectionContainers.forEach((container) => {
+        let rect = container.getBoundingClientRect();
         array.push(rect);
-    }
+    });
     return array;
 }
 
@@ -52,15 +52,15 @@ const inViewport = () => {
                 return index;
             }
         } else {
-            // NOT WORKING YET!
             // different selection rules for small screens
             let screenHeight = window.innerHeight;
-            if (window.scrollY > rectSections[index].y){
+            if (rectSections[index].y > (screenHeight/2*-1)){
                 return index;
             }
         }
     }
 }
+//&& (window.scrollY < rectSections[(index+1)].y)
 
 // populates gallery for each section with 5 thumbnails
 const galleryBuilder = (index) => {
@@ -103,8 +103,7 @@ const buildAllGalleries = () => {
     }
 }
 
-// add class 'active' to section & its nav item when near top of viewport
-
+// add class 'active' to section, its gallery, & its nav item when near top of viewport
 // // execute function every 500ms to check for scrolling
 setInterval( () => {
     // only execute the function when scrolling has been detected
@@ -176,19 +175,15 @@ scrollToSection = (event) => {
         let sectionId = event.target.getAttribute('data-id');
         let section = document.getElementById(sectionId);
         // initiate smooth scroll to that section
-        section.scrollIntoView({behavior: "smooth", block: "end"});
+        if (window.innerWidth > 601){
+            // align bottom of section with bottom of screen on large screens
+            section.scrollIntoView({behavior: "smooth", block: "end"});
+        } else {
+            // scroll to top of section on small screens
+            section.scrollIntoView({behavior: "smooth", block: "start", inline: "start"});
+        }
     }
 }
-
-// // activate modal lightbox
-// enlargeThumbnail = (event) => {
-//     if(event.target.nodeName === 'IMG'){
-//         console.log('clicked!');
-//         let imageId = event.target.getAttribute('data-id');
-//         let modalContainer = document.getElementById(imageId);
-//         modalContainer.classList.remove('hidden');
-//     }
-// }
 
 
 /* - Events - */
@@ -207,8 +202,3 @@ document.addEventListener('scroll', pastHero, false);
 
 // scroll to section upon link click
 navBar.addEventListener('click', (event) => {scrollToSection(event)}, false);
-
-// // enlarge gallery images upon hovering over thumbnail
-// for (let i=0; i<sectionGalleries.length; i++){
-//     sectionGalleries[i].addEventListener('click', (event) => {enlargeThumbnail(event)}, false);
-// };
