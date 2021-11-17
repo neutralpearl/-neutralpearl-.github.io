@@ -1,14 +1,13 @@
 /* Global Variables */
 
 // OpenWeatherMap API variables
-const apiKey = '602ea0a5e4d6cb931e1c010ba1b09c2c&units=imperial';
+const apiKey = '<your-api-key-here>';
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?';
 
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
-
+let newDate = (d.getMonth() + 1) + '/'+ d.getDate()+'/'+ d.getFullYear();
 
 /* Functions */
 
