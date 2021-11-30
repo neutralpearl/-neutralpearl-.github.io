@@ -1,4 +1,4 @@
-import { checkForName } from "../src/client/js/nameChecker";
+import { checkForName } from "../src/client/js/langValidator";
 
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.  
 // A test suite may contain one or more related tests    

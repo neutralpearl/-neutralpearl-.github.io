@@ -9,7 +9,10 @@ const postForm = async (url,data) => {
         body: JSON.stringify(data)
     };
 
-    const response = await fetch(url, requestOptions)
+    const response = await fetch(url, requestOptions);
+    // debugging
+    console.log(response);
+
     return await response.json();
 }
 

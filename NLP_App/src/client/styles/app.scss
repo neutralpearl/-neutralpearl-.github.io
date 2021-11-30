@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import 'animate.css';
 
 $app-color-bright: #6555f7;
 $app-color-medium: #4534df;
@@ -39,6 +40,17 @@ body {
     font-size: 1.2em;
     text-align: center;
     line-height: 1.3em;
+}
+
+strong {
+    font-weight: 600;
+}
+
+#error-message {
+    display: none;
+    border: 3px solid red;
+    background-color: rgba(146, 0, 0, 0.411);
+    padding: 20px 40px;
 }
 
 header {
@@ -148,11 +160,34 @@ section {
         }
 
         #results {
+            visibility: hidden;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
             min-height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .sentiment-grid {
+            display: block;
+            background-color: #fff;
+            color: #000;
+            min-height: 50px;
+            padding: 10px;
+
+            .emoji {
+                text-align: center;
+                font-size: 100px;
+                margin: 10px;
+            }
+
+            p {
+                text-align: center;
+            }
         }
     }  
 }
-
 
 footer {
     @include banners;

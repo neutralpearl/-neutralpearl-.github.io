@@ -1,27 +1,25 @@
-const path = require('path')
-const express = require('express')
-// const mockAPIResponse = require('./mockAPI.js');
+const path = require('path');
+const express = require('express');
 require('dotenv').config();
 
-const app = express()
+const app = express();
 
+// configure Express
 app.use(express.static('dist'));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // console.log(__dirname);
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
+app.listen(8080, () => {
     console.log('App listening on port 8080')
 })
-
-// app.get('/test', function (req, res) {
-//     res.send(mockAPIResponse)
-// })
 
 let validatedText = {};
 

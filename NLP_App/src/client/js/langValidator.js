@@ -1,13 +1,39 @@
-// documentation: https://learn.meaningcloud.com/developer/language-identification/4.0/doc/request
-
-let endpoint = 'https://api.meaningcloud.com/lang-4.0/identification';
-
 async function validateLang(inputText) {
     console.log("::: Running validateText :::", inputText);
-    const request = await fetch('${endpoint}?txt=${inputText}&key=${MeaningCloud_API_Key}');
+
+    let endpoint = 'https://api.meaningcloud.com/lang-4.0/identification';
+    const MeaningCloud_API_Key = '979efb0428313b854a9125ee2da216c7';
+
+    const formdata = new FormData();
+    formdata.append("key", `${MeaningCloud_API_Key}`);
+    formdata.append("txt", `${inputText}`);
+
+    const requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+      };
+
+    // giving 500 error
+    const request = await fetch(`${endpoint}`, requestOptions);
     try {
         const response = await request.json();
-        return response;
+        const lang = response.language_list[0].name;
+
+        if(lang === 'English'){
+            console.log(response);
+            return response;
+        } else {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.innerHTML = 'Sorry! MindRdr cannot analyze non-English text at this time.';
+            errorMessage.style.display = 'block';          
+
+            //show error message in lieu of response
+            document.getElementById('sentiments').style.visibility = 'visible';
+
+            throw new Error('Sorry! MindRdr cannot analyze non-English text at this time.');
+        }
+        
     } catch(error) {
         console.log(error);
         return false;
