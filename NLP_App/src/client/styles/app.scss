@@ -1,37 +1,160 @@
-$app-color: #502adb;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+$app-color-bright: #6555f7;
+$app-color-medium: #4534df;
+$app-color-dark: #3a1da1;
+$app-color-contrast: rgb(233, 159, 0);
+$app-color-darkgrey: #444;
+$round-corners: 5px;
+$main-font: 'Montserrat', sans-serif;
+
+@mixin banners {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: $app-color-dark;
+    color: #fff;
+  }
 
 body {
     display: flex;
     flex-direction: column;
+    align-items: center;
     min-height: 100vh;
-    color: $app-color;
+    font-family: $main-font;
+}
+
+%salient-text {
+    color: #fff;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+%explanatory-block {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: $round-corners;
+    font-weight: 600;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.3em;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 40px;
+    @include banners;
+
+    #app-name {
+        @extend %salient-text;
+        -webkit-text-stroke: 1px $app-color-contrast;
+    }
+
+    #app-headline {
+        font-style: italic;
+        padding-top: .8em;
+        text-align: right;
+        font-size: smaller;
+    }
 }
 
 main {
     flex: 2;
+    background-color: rgb(221, 221, 221);
 }
 
 section {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 50px 5%;
+
+    &#about {
+        @extend %explanatory-block;
+        border: 4px solid $app-color-contrast;
+
+        p {
+            padding: 10px 0;
+        }
+
+        p:nth-child(2), 
+        ul {
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        span {
+            color: $app-color-bright;
+        }
+    }
+
+    &#enter-text {
+        form {
+            display: flex;
+            flex-direction: column;
+            border-radius: $round-corners;
+            padding: 40px;
+            background-color: $app-color-contrast;
+        }
+
+        label {
+            @extend %explanatory-block;
+            border-radius: $round-corners $round-corners 0 0;
+            background-color: $app-color-darkgrey;
+            color: #fff;
+        }
+
+        textarea {
+            padding: 10px 20px;
+            min-width: 100%;
+            max-width: 100%;
+            border: 1px solid $app-color-darkgrey;
+            line-height: 16px;
+            min-height: 100px;
+            font-family: $main-font;
+            font-size: smaller;
+        }
+
+        input {
+            font-family: inherit;
+            padding: 10px;
+            border-radius: 0 0 $round-corners $round-corners;
+            border: 1px solid $app-color-darkgrey;
+            width: 100%;
+            background-color: $app-color-bright;
+            font-size: 1em;
+            color: #fff;
+
+            &:hover {
+                background-color: $app-color-medium;
+                transition-duration: 400ms;
+            }
+
+            &:active {
+                background-color: $app-color-dark;
+            }
+        }
+    }
+
+    &#sentiments {
+        visibility: hidden;
+        @include banners;
+        width: unset;
+        background-color: $app-color-darkgrey;
+        flex-direction: column;
+        grid-gap: 20px;
+        border-radius: $round-corners;
+
+        #results-title {
+            @extend %salient-text;
+            font-size: 1.5em;
+        }
+
+        #results {
+            min-height: 50px;
+        }
+    }  
 }
 
-form {
-    border: 1px solid #545454;
-    border-radius: 3px;
-    padding: 40px;
-}
 
-input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
+footer {
+    @include banners;
+    font-size: smaller;
 }
-

@@ -2,38 +2,51 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/app.css">
+        <title>MindRdr: A Sentiment Analysis App</title>
     </head>
-
     <body>
 
         <header>
-            <div class="">
-                Logo
+            <div id="app-name">
+                MindRdr
             </div>
-            <div class="">
-                navigation
+            <div id="app-headline">
+                Use NLP to decode feelings from text!
             </div>
         </header>
 
         <main>
-            <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+            <section id="about">
+                <p><span>MindRdr</span> performs sentiment analysis on text using Natural Language Processing (NLP).</p>
+                <p>Type or copy-paste a block of text to detect features including:</p>
+                <ul>
+                    <li><strong>Agreement: </strong></li>
+                    <li><strong>Subjectivity: </strong></li>
+                    <li><strong>Confidence: </strong></li>
+                    <li><strong>Irony: </strong></li>
+                </ul>
+            </section>
+            <section id="enter-text">
+                <form id="form">
+                    <label for="input-text">Enter the text you'd like to analyze.</label>
+                    <textarea id="input-text" type="text" name="input" value="" minlength="50" required></textarea>
+                    <input type="submit" name="" value="Analyze Sentiments">
                 </form>
             </section>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+            <section id="sentiments">
+                <div id="results-title">Sentiments Detected:</div>
+                <div id="results">
+                    <p id="agreement"></p>
+                    <p id="subjectivity"></p>
+                    <p id="confidence"></p>
+                    <p id="irony"></p>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>Developed for Udacity Front End Web Developer Nanodegree Program</p>
         </footer>
 
     </body>
