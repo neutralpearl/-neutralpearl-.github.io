@@ -16,16 +16,11 @@
         </header>
 
         <main>
-            <section id="about" class="animate__animated animate__zoomIn">
+
+            <section id="about" class="animate__animated animate__zoomIn animate__slow">
                 <p><span>MindRdr</span> performs sentiment analysis on text using Natural Language Processing (NLP).</p>
-                <!-- <p>Type or copy-paste a block of text to detect features including:</p>
-                <ul>
-                    <li><strong>Agreement: </strong></li>
-                    <li><strong>Subjectivity: </strong></li>
-                    <li><strong>Confidence: </strong></li>
-                    <li><strong>Irony: </strong></li>
-                </ul> -->
             </section>
+
             <section id="enter-text">
                 <form id="form">
                     <label for="input-text">Enter the text you'd like to analyze.</label>
@@ -39,23 +34,24 @@
                 <div id="results-title"></div>
                 <div id="results">
                     <div class="sentiment-grid">
-                        <div class="emoji" id="agreement-emoji">&#128578;</div>
+                        <div class="emoji" id="agreement-emoji"></div>
                         <p id="agreement"></p>
                     </div>
                     <div class="sentiment-grid">
-                        <div class="emoji" id="subjectivity-emoji">&#128578;</div>
+                        <div class="emoji" id="subjectivity-emoji"></div>
                         <p id="subjectivity"></p>
                     </div>
-                    <div class="sentiment-grid">
-                        <div class="emoji" id="confidence-emoji">&#128578;</div>
+                    <div class="sentiment-grid" >
+                        <div class="emoji" id="confidence-emoji"></div>
                         <p id="confidence"></p>
                     </div>
                     <div class="sentiment-grid">
-                        <div class="emoji" id="irony-emoji">&#128578;</div>
+                        <div class="emoji" id="irony-emoji"></div>
                         <p id="irony"></p>
                     </div>
                 </div>
             </section>
+
         </main>
 
         <footer>
