@@ -13,9 +13,6 @@ async function handleSubmit(event) {
 
     const isValidated = await validateLang(formText);
 
-    //debugging 
-    console.log(`isValidated = ${isValidated}`);
-
     if (isValidated) {
         const request = await fetch(`${endpoint}?lang=en&txt=${formText}&key=${MeaningCloud_API_Key}`);
         try {
@@ -37,6 +34,7 @@ async function handleSubmit(event) {
                 }
 
                 // show div containing sentiments
+                document.getElementById('results').style.display = 'grid';
                 document.getElementById('results').style.visibility = 'visible';
             })
         } catch(error) {

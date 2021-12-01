@@ -19,17 +19,19 @@ async function validateLang(inputText) {
     try {
         const response = await request.json();
         const lang = response.language_list[0].name;
+        const errorMessage = document.getElementById('error-message');
 
         if(lang === 'English'){
             console.log(response);
+            errorMessage.style.display = 'none'; 
             return response;
         } else {
-            const errorMessage = document.getElementById('error-message');
             errorMessage.innerHTML = 'Sorry! MindRdr cannot analyze non-English text at this time.';
             errorMessage.style.display = 'block';          
 
             //show error message in lieu of response
             document.getElementById('sentiments').style.visibility = 'visible';
+            document.getElementById('results').style.display = 'none';
 
             throw new Error('Sorry! MindRdr cannot analyze non-English text at this time.');
         }
