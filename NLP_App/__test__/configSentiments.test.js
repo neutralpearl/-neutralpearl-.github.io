@@ -1,3 +1,11 @@
+// https://jestjs.io/docs/getting-started
+// https://jestjs.io/docs/using-matchers
+// https://jestjs.io/docs/asynchronous
+// https://www.valentinog.com/blog/jest/
+
+
+
+
 import { configSentiments } from "../src/client/js/sentimentConfigurator";
 
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.  
