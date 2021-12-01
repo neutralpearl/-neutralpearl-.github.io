@@ -3,6 +3,8 @@ async function validateLang(inputText) {
 
     let endpoint = 'https://api.meaningcloud.com/lang-4.0/identification';
     const MeaningCloud_API_Key = process.env.API_KEY;
+    // console.log(`API_KEY — validateLang : ${MeaningCloud_API_Key}`);
+    // const MeaningCloud_API_Key ='979efb0428313b854a9125ee2da216c7';
 
     const formdata = new FormData();
     formdata.append("key", `${MeaningCloud_API_Key}`);
