@@ -2,7 +2,7 @@ async function validateLang(inputText) {
     console.log("::: Running validateText :::", inputText);
 
     let endpoint = 'https://api.meaningcloud.com/lang-4.0/identification';
-    const MeaningCloud_API_Key = '979efb0428313b854a9125ee2da216c7';
+    const MeaningCloud_API_Key = process.env.API_KEY;
 
     const formdata = new FormData();
     formdata.append("key", `${MeaningCloud_API_Key}`);
@@ -14,7 +14,6 @@ async function validateLang(inputText) {
         redirect: 'follow'
       };
 
-    // giving 500 error
     const request = await fetch(`${endpoint}`, requestOptions);
     try {
         const response = await request.json();
@@ -22,7 +21,6 @@ async function validateLang(inputText) {
         const errorMessage = document.getElementById('error-message');
 
         if(lang === 'English'){
-            console.log(response);
             errorMessage.style.display = 'none'; 
             return response;
         } else {

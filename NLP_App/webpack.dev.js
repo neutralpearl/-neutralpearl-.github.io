@@ -34,6 +34,11 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
+        }),
+        // fix "process is not defined" error:
+        // (do "npm install process" before running the build)
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+        }),
     ]
 }

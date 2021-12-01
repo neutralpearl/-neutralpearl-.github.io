@@ -1,20 +1,20 @@
 import { validateLang } from './langValidator';
+import { fetchSentiments } from './sentimentFetcher';
 import { configSentiments} from "./sentimentConfigurator";
 
 async function handleSubmit(event) {
     event.preventDefault();
     console.log("::: Form submitted :::");
 
-    const endpoint = 'https://api.meaningcloud.com/sentiment-2.1';
-    const MeaningCloud_API_Key = '979efb0428313b854a9125ee2da216c7';
-    
     // check what text was put into the form field
     let formText = document.getElementById('input-text').value;
 
+    // use Language Identification API to make sure text is in English
     const isValidated = await validateLang(formText);
 
     if (isValidated) {
-        const request = await fetch(`${endpoint}?lang=en&txt=${formText}&key=${MeaningCloud_API_Key}`);
+        // retrieve Sentimental Analysis data from API
+        const request = await fetchSentiments(formText);
         try {
             // Transform into JSON
             const response = await request.json()
