@@ -1,4 +1,4 @@
-import { configSentiments} from "../src/client/js/sentimentConfigurator";
+import { configSentiments } from "../src/client/js/sentimentConfigurator";
 
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.  
 // A test suite may contain one or more related tests    
