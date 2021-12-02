@@ -1,4 +1,6 @@
 const configSentiments = response => {
+    console.log(`::: Running configSentiments :::`);
+
     document.getElementById('results-title').innerHTML= `Sentiments Detected:`;
 
     document.getElementById('agreement').innerHTML = `<strong>Agreement:</strong> ${response.agreement.toLowerCase()}`;

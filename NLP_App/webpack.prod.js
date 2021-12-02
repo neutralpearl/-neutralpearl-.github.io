@@ -2,14 +2,20 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CSSMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const Dotenv = require('dotenv-webpack')
+const sass = require('sass');
+// const Dotenv = require('dotenv-webpack')
 
 module.exports = {
     entry: './src/client/index.js',
     mode: 'production',
+    output: {
+        libraryTarget: "var",
+        library: "Client",
+      },
     module: {
         rules: [
             {
@@ -24,7 +30,7 @@ module.exports = {
         ]
     },
     optimization: {
-        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+        minimizer: [new TerserPlugin({}), new CSSMinimizerWebpackPlugin({})],
     },
     plugins: [
         new HtmlWebPackPlugin({
@@ -32,11 +38,7 @@ module.exports = {
             filename: "./index.html",
         }),
         new MiniCssExtractPlugin({ filename: "main.css" }),
-        new WorkboxPlugin.GenerateSW(),
-        // NOT WORKING
-        new webpack.ProvidePlugin({
-            process: 'process/browser',
-        }),
-        new Dotenv()
+        new WorkboxPlugin.GenerateSW()
+        // new Dotenv()
     ]
 }

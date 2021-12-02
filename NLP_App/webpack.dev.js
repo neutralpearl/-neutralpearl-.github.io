@@ -2,13 +2,18 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
+// const Dotenv = require('dotenv-webpack')
+const sass = require('sass');
 
 module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
+    output: {
+        libraryTarget: "var",
+        library: "Client",
+      },
     module: {
         rules: [
             {
@@ -38,9 +43,13 @@ module.exports = {
         }),
         // fix "process is not defined" error:
         // (do "npm install process" before running the build)
-        new webpack.ProvidePlugin({
-            process: 'process/browser',
-        }),
-        new Dotenv()
+        // new webpack.ProvidePlugin({
+        //     process: 'process/browser',
+        // }),
+        new webpack.DefinePlugin({
+            // 'process.env.NODE_ENV': JSON.stringify('development')
+            'process.env': JSON.stringify('process.env')
+         })
+        // new Dotenv()
     ]
 }

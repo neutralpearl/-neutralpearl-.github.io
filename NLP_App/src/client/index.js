@@ -8,7 +8,7 @@ import './styles/app.scss';
 //     env: {NODE_ENV :'production'}
 // };
 
-// Listen for form submission -- NOT WORKING
+// Listen for form submission
 document.getElementById('form').addEventListener("submit", handleSubmit);
 
 
