@@ -5,7 +5,7 @@ const cors = require('cors');
 const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv'); // supposed to enable use of environmental variables
-dotenv.config({path: path.join(__dirname, '.env')})
+dotenv.config(); // recommended config object {path: path.join(__dirname, '.env')} doesn't fix problem
 
 // define API key as environmental variable — NOT WORKING
 const API_KEY = process.env.API_KEY;
