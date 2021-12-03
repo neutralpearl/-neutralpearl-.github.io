@@ -1,7 +1,8 @@
 const configSentiments = response => {
     console.log(`::: Running configSentiments :::`);
 
-    document.getElementById('results-title').innerHTML= `Sentiments Detected:`;
+    document.getElementById('results-title').style.display = 'block';
+    document.getElementById('results-title').innerHTML = `Sentiments Detected:`;
 
     document.getElementById('agreement').innerHTML = `<strong>Agreement:</strong> ${response.agreement.toLowerCase()}`;
     const agreementEmoji = (response.agreement.toLowerCase() === 'agreement' ? '&#128077;' : '&#128078;');

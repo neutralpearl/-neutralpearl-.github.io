@@ -22,8 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    // res.sendFile('dist/index.html') <-- switch to this for production
-    res.sendFile(path.resolve('src/client/views/index.html'))
+    res.sendFile('dist/index.html') // <-- switch to this for production
+    // res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 // designates what port the app will listen to for incoming requests
