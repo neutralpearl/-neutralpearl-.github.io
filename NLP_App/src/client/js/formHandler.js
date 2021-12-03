@@ -21,17 +21,21 @@ async function handleSubmit(event) {
     let formText = document.getElementById('input-text').value;
 
     // use Language Identification API to make sure text is in English
-    const isValidated = await Client.validateLang(formText,API_KEY);
+    // const isValidated = await Client.validateLang(formText,API_KEY);
+    const isValidated = await validateLang(formText,API_KEY);
     
     if (isValidated) {
         try {
             // retrieve Sentiment Analysis data from API
-            const request = await Client.fetchSentiments(formText,API_KEY);
+            const request = await fetchSentiments(formText,API_KEY);
+            // const request = await Client.fetchSentiments(formText,API_KEY);
+
             // Transform into JSON
             const response = await request.json()
             .then(response => {
                 // retrieve data from API & populate DOM content
-                Client.configSentiments(response);
+                configSentiments(response);
+                // Client.configSentiments(response);
             })
             .then( () => {
                 // display retrieved sentiment data in results div
