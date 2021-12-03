@@ -3,8 +3,8 @@
 // https://jestjs.io/docs/asynchronous
 // https://www.valentinog.com/blog/jest/
 
-
-
+// require('jest-fetch-mock').enableMocks();
+import { fetch } from "./jest-setup";
 
 import { configSentiments } from "../src/client/js/sentimentConfigurator";
 

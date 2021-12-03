@@ -2,12 +2,10 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CSSMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
-// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const sass = require('sass');
-// const Dotenv = require('dotenv-webpack')
 
 module.exports = {
     entry: './src/client/index.js',
@@ -30,7 +28,7 @@ module.exports = {
         ]
     },
     optimization: {
-        minimizer: [new TerserPlugin({}), new CSSMinimizerWebpackPlugin({})],
+        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
     plugins: [
         new HtmlWebPackPlugin({
@@ -39,6 +37,5 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({ filename: "main.css" }),
         new WorkboxPlugin.GenerateSW()
-        // new Dotenv()
     ]
 }
