@@ -1,5 +1,7 @@
+const path = require('path');
+
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+// projectData = {};
 
 // Require Express to run server and routes
 const express = require('express');
@@ -17,29 +19,35 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 
-// Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static('dist'));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.get('/', (req, res) => {
+    // res.sendFile('dist/index.html') <-- switch to this for production
+    res.sendFile(path.resolve('src/client/html/index.html'))
+})
 
 // Setup Server
 const port = 8000;
 const server = app.listen(port, ()=>{console.log(`Server running on localhost: ${port}`)});
 
-// callback functions for GET and POST routes
-const addEntry = (req, res) => {
-    projectData = req.body;
-    res.status(200).send(projectData);
-    console.log(projectData);
-}; 
+// // callback functions for GET and POST routes
+// const addEntry = (req, res) => {
+//     projectData = req.body;
+//     res.status(200).send(projectData);
+//     console.log(projectData);
+// }; 
 
-const retrieveEntry = (req, res) => {
-    res.status(200).send(JSON.stringify(projectData));
-};
+// const retrieveEntry = (req, res) => {
+//     res.status(200).send(JSON.stringify(projectData));
+// };
 
-// POST route (allows app.js to submit new entry to projectData)
-app.post('/add-entry', addEntry);
+// // POST route (allows app.js to submit new entry to projectData)
+// app.post('/add-entry', addEntry);
 
-// GET route (allows app.js to access projectData)
-app.get('/retrieve-entry', retrieveEntry);
+// // GET route (allows app.js to access projectData)
+// app.get('/retrieve-entry', retrieveEntry);
 
 
 

@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&family=Montserrat:wght@400;600&display=swap');
+
+$font-logo: 'Meow Script', serif;
+$font-base: 'Montserrat', sans-serif;
+
 /* ------- Typography -------- */
 
 html {
@@ -5,13 +10,12 @@ html {
 }
 
 h1{
-    font-family: 'Abril Fatface', serif;
+    font-family: $font-logo !important;
     font-size: 3em;
     color: #f9f9f9;
 }
 
 h2{
-    font-family: 'Playfair Display', serif;
     font-size: 1.5em;
     font-weight: 700;
     font-style: italic;
@@ -35,13 +39,13 @@ a {
 
 body{
     background-color: #000;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: $font-base;
     margin: 1em;
     height:100vh;
 }
 
 .headline {
-    background-image: url('media/trees.jpg');
+    background-image: url('../media/wing.jpg');
     background-size: cover;
     margin: 0 !important;
     padding: 1em;
@@ -51,7 +55,6 @@ body{
 #app{
     background-color: #405326;
     color: #d8d8d8;
-    font-family: 'Mukta Mahee', sans-serif;
     font-weight: 200;
     border-radius: 15px;
     border: 1px solid #444444;
@@ -121,20 +124,18 @@ main {
     border-radius: 10px;
 }
 
-/* journal entry labels */
-#date span,
-#temp span,
-#content span {
-    font-family: 'Mukta Mahee', sans-serif;
-    font-weight: 700;
-}
+// /* journal entry labels */
+// #date span,
+// #temp span,
+// #content span {
+//     font-weight: 700;
+// }
 
-/* journal entry values */
-#date,
-#temp,
-#content{
-    font-family: 'Playfair Display', serif;
-}
+// /* journal entry values */
+// #date,
+// #temp,
+// #content{
+// }
 
 .title{
     height: 3em;
@@ -168,7 +169,6 @@ input{
     background-color: #1a1a1a;
     color: #b9b9b9; 
     font-size: inherit;
-    font-family: 'Playfair Display', serif;
     border: none;
     border-radius: 4px;
 }
@@ -180,7 +180,6 @@ textarea{
     background:#1a1a1a;
     padding: .5em;
     color: #b9b9b9; 
-    font-family: 'Playfair Display', serif;
     font-size: inherit;
     border: none;
     min-width: 320px;
@@ -195,7 +194,6 @@ button {
     border: 1px solid #fff !important;
     color: #fff;
     font-size: 1.5em;
-    font-family: 'Mukta Mahee', sans-serif;
     font-weight: 200;
     border-radius: 4px;
     border: none;
@@ -222,5 +220,4 @@ button:focus {
 :-ms-input-placeholder, /* Internet Explorer 10-11 */
 ::-ms-input-placeholder /* Microsoft Edge */ { 
     color: #6e6e6e !important; 
-    font-family: 'Playfair Display', serif;
 } 
