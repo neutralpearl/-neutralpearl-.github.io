@@ -1,7 +1,7 @@
 /* Global Variables */
 
 // OpenWeatherMap API variables
-const apiKey = '602ea0a5e4d6cb931e1c010ba1b09c2c&units=imperial';
+const apiKey = '<API_KEY>&units=imperial';
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?';
 
 
