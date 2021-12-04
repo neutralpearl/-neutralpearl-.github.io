@@ -11,7 +11,7 @@ module.exports = {
     output: {
         libraryTarget: "var",
         library: "Client",
-        assetModuleFilename: 'assets/[hash][ext]'
+        assetModuleFilename: 'assets/[name][ext]'
       },
     module: {
         rules: [

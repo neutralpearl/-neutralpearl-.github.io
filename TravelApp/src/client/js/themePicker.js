@@ -1,7 +1,7 @@
 const chooseTheme = event => {
 
     const appBody = document.getElementsByTagName('body')[0];
-    const urlBase=`url('src/client/media/')`;
+    const urlBase=`url('/assets/`;
 
     const themeChoice = event.target;
     console.log(`changing theme to ${themeChoice.id} . . . `);
@@ -9,20 +9,20 @@ const chooseTheme = event => {
     // images aren't getting 
     switch (themeChoice.id) {
         case 'mountain': 
-            console.log(themeChoice.id);
             appBody.style.backgroundImage = `${urlBase}mountains.jpg')`; 
+            document.getElementsByClassName('logo')[0].style.color = '#000';
             break;
         case 'city': 
-            console.log(themeChoice.id);
             appBody.style.backgroundImage = `${urlBase}skyline.png')`; 
+            document.getElementsByClassName('logo')[0].style.color = '#fff';
             break;
         case 'oasis': 
-            console.log(themeChoice.id);
             appBody.style.backgroundImage = `${urlBase}palms.jpg')`; 
+            document.getElementsByClassName('logo')[0].style.color = '#fff';
             break;
         case 'ruins': 
-            console.log(themeChoice.id);
             appBody.style.backgroundImage = `${urlBase}temples.jpg')`; 
+            document.getElementsByClassName('logo')[0].style.color = '#000';
             break;
         // default:
         //     appBody.style.backgroundImage = `${urlBase}mountains.jpg')`; 
