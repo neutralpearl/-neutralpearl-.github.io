@@ -1,4 +1,6 @@
 const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Setup empty JS object to act as endpoint for all routes
 // projectData = {};
@@ -29,7 +31,7 @@ app.get('/', (req, res) => {
 })
 
 // Setup Server
-const port = 8000;
+const port = 3000;
 const server = app.listen(port, ()=>{console.log(`Server running on localhost: ${port}`)});
 
 // // callback functions for GET and POST routes
