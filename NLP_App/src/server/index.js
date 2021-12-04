@@ -1,15 +1,18 @@
 const path = require('path');
-const process = require('process'); // unless localhost:8080 is viewed in Chrome incognito mode, browser displays "ReferenceError: process is not defined" when running functions that use variables defined as properties of process.env.
 const express = require('express');
 const cors = require('cors');
+
 const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv'); // supposed to enable use of environmental variables
-dotenv.config({ path: path.resolve(__dirname, "../.env") });// recommended config object {path: path.join(__dirname, '.env')} doesn't fix problem
+
+const dotenv = require('dotenv');
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+
 
 // define API key as environmental variable — NOT WORKING
 const API_KEY = process.env.API_KEY;
-console.log(API_KEY); // prints "undefined"; variable not getting pulled from .env & passed correctly into GET response
+console.log(API_KEY); 
+console.log(JSON.stringify({key: API_KEY})); // debugging
 
 const app = express();
 
@@ -32,8 +35,8 @@ app.listen(8081, () => {
 })
 
 // callback function for GET route (allows client-side JS to retrieve API key from server)
-const getKey = (req, res) => {
-    res.status(200).send(JSON.stringify({key: API_KEY}));
-}
+// const getKey = 
 // GET route — NOT WORKING!
-app.get('/get-key', getKey);
+app.get('/get-key', (req, res) => {
+    res.status(200).send(JSON.stringify({key: API_KEY}));
+});
