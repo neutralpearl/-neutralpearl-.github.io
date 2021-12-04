@@ -1,3 +1,3 @@
-#Browser-Based Web Projects
+# Browser-Based Web Projects
 
-...more TBD
+Simple HTML / CSS / vanilla JS projects for skill development.
