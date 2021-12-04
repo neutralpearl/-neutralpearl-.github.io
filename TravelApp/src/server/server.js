@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 })
 
 // Setup Server
-const port = 8000;
+const port = 3000;
 const server = app.listen(port, ()=>{console.log(`Server running on localhost: ${port}`)});
 
 // // callback functions for GET and POST routes

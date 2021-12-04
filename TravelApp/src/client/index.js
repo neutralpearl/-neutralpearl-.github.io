@@ -1,8 +1,23 @@
+// import js files
+import { chooseTheme } from './js/themePicker';
+
 // import Sass stylesheets
 import './styles/app.scss'; 
 import './styles/resets.scss';
 
-// import js files
+// import image files
+import './media/mountains.jpg'; 
+import './media/palms.jpg';
+import './media/skyline.png'; 
+import './media/temples.jpg';
+
+const themeMenu = document.getElementsByClassName('theme-menu')[0];
+const themeMenuOptions = themeMenu.children;
+for (let option of themeMenuOptions) {
+    option.addEventListener('click', chooseTheme);
+}
+
+
 
 /* Global Variables */
 
