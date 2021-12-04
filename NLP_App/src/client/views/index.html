@@ -22,10 +22,10 @@
             </section>
 
             <section id="enter-text">
-                <form id="form">
+                <form id="form" onsubmit="return Client.handleSubmit(event)">
                     <label for="input-text">Enter the text you'd like to analyze.</label>
                     <textarea id="input-text" type="text" name="input" value="" minlength="50" required></textarea>
-                    <input id="form-submit" type="submit"  value="Analyze Sentiments">
+                    <input id="form-submit" type="submit"  value="Analyze Sentiments" onclick="return Client.handleSubmit(event)">
                 </form>
             </section>
 
@@ -57,15 +57,14 @@
         <footer>
             <p>Developed for Udacity Front End Web Developer Nanodegree Program</p>
         </footer>
-        <!-- Disabled during dev --
-            <script>
-            // Check that service workers are supported
-            if ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js');
-                });
-            }
-           </script>   -->
+        <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+        </script>  
     </body>
 </html>

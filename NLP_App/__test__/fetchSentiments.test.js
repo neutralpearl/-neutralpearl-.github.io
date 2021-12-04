@@ -1,3 +1,6 @@
+// require('jest-fetch-mock').enableMocks();
+import { fetch } from "./jest-setup";
+
 import { fetchSentiments } from "../src/client/js/sentimentFetcher";
 
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.  

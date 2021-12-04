@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-// const Dotenv = require('dotenv-webpack')
 const sass = require('sass');
 
 module.exports = {
@@ -41,6 +40,7 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
+        // // recommended fix for webpack 5 not polyfilling "process" in browser environment
         // fix "process is not defined" error:
         // (do "npm install process" before running the build)
         // new webpack.ProvidePlugin({
@@ -50,6 +50,5 @@ module.exports = {
             // 'process.env.NODE_ENV': JSON.stringify('development')
             'process.env': JSON.stringify('process.env')
          })
-        // new Dotenv()
     ]
 }

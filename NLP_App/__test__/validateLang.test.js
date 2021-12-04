@@ -1,3 +1,6 @@
+// require('jest-fetch-mock').enableMocks();
+import { fetch } from "./jest-setup";
+
 import { validateLang } from "../src/client/js/langValidator";
 
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.  

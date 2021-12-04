@@ -2,8 +2,7 @@ async function validateLang(inputText,key) {
     console.log(`::: Running validateText ::: "${inputText}" `);
 
     let endpoint = 'https://api.meaningcloud.com/lang-4.0/identification';
-    // const MeaningCloud_API_Key = process.env.API_KEY;
-     const MeaningCloud_API_Key = key;
+     const MeaningCloud_API_Key = key; 
 
     const formdata = new FormData();
     formdata.append("key", `${MeaningCloud_API_Key}`);
@@ -26,11 +25,12 @@ async function validateLang(inputText,key) {
             console.log(response);
             return response;
         } else {
-            errorMessage.innerHTML = 'Sorry! MindRdr cannot analyze non-English text at this time.';
+            errorMessage.innerHTML = `The text you entered is in ${lang}.<br/><br/> MindRdr cannot analyze non-English text at this time.`;
             errorMessage.style.display = 'block';          
 
             //show error message in lieu of response
             document.getElementById('sentiments').style.visibility = 'visible';
+            document.getElementById('results-title').style.display = 'none';
             document.getElementById('results').style.display = 'none';
 
             throw new Error('Sorry! MindRdr cannot analyze non-English text at this time.');
