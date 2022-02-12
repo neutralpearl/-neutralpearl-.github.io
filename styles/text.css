@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
+
 h1{
     font-family: 'Jost', sans-serif;
     font-weight: 500;
@@ -11,12 +12,11 @@ h1{
     font-size: 54px;
     color: #e6e6e6cc;
     text-shadow: 2px 2px #464646;
-    /* border: 1px solid yellowgreen; */
 }
 
 h2{
-    font-family: 'Mukta', sans-serif;
-    font-size: 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 32px;
     font-weight: 300;
     text-transform: uppercase;
     color: #e6e6e6cc;
@@ -24,7 +24,7 @@ h2{
 
 h3{
     font-size: 24px;
-    font-family: 'Noto Sans', serif;
+    font-family: 'Mukta', serif;
     color: #e6e6e6cc;
 }
 
@@ -33,14 +33,14 @@ h4{
     font-family: 'Mukta', sans-serif;
     font-weight: 300;
     color: #b1b1b1cc;
-    /* border: 1px solid coral; */
 }
 
 p{
-    font-size: 20px;
-    font-family: 'Noto Sans', sans-serif;
-    color: #e6e6e6cc;
-    /* color: #000; */
+    font-size: 19px;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    color: #bebebecc;
 }
 
 li{
@@ -61,16 +61,17 @@ a{
 }
 
 a:visited{
-    color: #c7b409;
+    color: #e6e6e6cc;
 }
 
 a:hover{
     color: #df9c0b;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 a:active{
     color: #d39207;
+    font-weight: 400;
     text-decoration: underline solid;
 }
 
