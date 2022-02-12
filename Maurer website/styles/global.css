@@ -1,0 +1,35 @@
+@import "Meyer-reset.css";
+
+body{
+    background-color: rgb(12, 12, 12);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 0px;
+    z-index: -50;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    height: auto;
+    /* border: 2px solid red; */
+}
+
+nav{
+    height: auto;
+    /* border: 2px solid orange; */
+}
+
+footer{
+    height: 100px;
+    /* border: 2px solid green; */
+}
+
+/*==============RESPONSIVENESS===============*/
+
+/*---MEDIUM SCREENS---*/
+/* @media (min-width 600px) and (max-width 900px){} */
+
+
+/*---LARGE SCREENS---*/
+/* @media (min-width 901px){} */
